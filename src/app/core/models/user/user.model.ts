@@ -8,6 +8,7 @@ export interface User {
     name: string, 
     email: string,
     handicapIndex: number,
+    homeCourseName: string,
     scores: Score[],
     posts: Post[],
     golfCourseId: string,

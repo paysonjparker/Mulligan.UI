@@ -15,7 +15,12 @@ export class NavigationBarComponent implements OnInit {
             {
               label: 'Home',
               icon: 'pi pi-home',
-              routerLink: ''
+              routerLink: '/'
+            },
+            {
+              label: 'Users',
+              icon: 'pi pi-user',
+              routerLink: 'users'
             },
         ];
     }
