@@ -9,6 +9,9 @@ import { HomeComponent } from './core/components/home/home.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { NavigationBarComponent } from './core/components/navigation-bar/navigation-bar.component';
 
+// PrimeNg Modules
+import { MenubarModule } from 'primeng/menubar';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +24,7 @@ import { NavigationBarComponent } from './core/components/navigation-bar/navigat
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
