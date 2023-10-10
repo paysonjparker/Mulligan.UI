@@ -20,7 +20,18 @@ export class NavigationBarComponent implements OnInit {
             {
               label: 'Users',
               icon: 'pi pi-user',
-              routerLink: 'users'
+              items: [
+                {
+                  label: 'View Users',
+                  icon: 'pi pi-eye',
+                  routerLink: 'users',
+                },
+                {
+                  label: 'Create User',
+                  icon: 'pi pi-plus',
+                  routerLink: 'createUser'
+                }
+              ]
             },
         ];
     }

@@ -1,0 +1,22 @@
+<div class="card flex flex-column gap-3" style="max-width: 50rem;margin: auto;margin-top: 3rem;">
+    <form class="create-user-form" [formGroup]="createUserForm">
+        <span class="user-create p-float-label">
+            <input type="text" pInputText formControlName="username" placeholder="Username" />
+            <label htmlFor="username">Username</label>
+        </span>
+        <span class="user-create p-float-label">
+            <input type="password" pInputText formControlName="password" />
+            <label htmlFor="password">Password</label>
+        </span>
+        <span class="user-create p-float-label">
+            <input type="text" pInputText formControlName="name" placeholder="Name" />
+            <label htmlFor="name">Name</label>
+        </span>
+        <span class="user-create p-float-label">
+            <input type="text" pInputText formControlName="email" placeholder="Email" />
+            <label htmlFor="email">Email</label>
+        </span>
+        <p-dropdown class="user-create" formControlName="golfCourse" [options]="golfCourses" optionLabel="name" [filter]="true"
+            filterBy="name" placeholder="Select your home course"></p-dropdown>
+    </form>
+</div>

@@ -44,4 +44,11 @@ export class GolfCourseService {
         callback();
       });
   }
+
+  public getGolfCourseNames(callback: (golfCourseNames: string[]) => void): void {
+    this.http.get<string[]>(this.mulliganApiUrl + "/GolfCourses/names").
+      subscribe((golfCourseNames: string[]) => {
+        callback(golfCourseNames);
+      });
+  }
 }
