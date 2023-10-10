@@ -11,6 +11,7 @@ import { NavigationBarComponent } from './core/components/navigation-bar/navigat
 
 // PrimeNg Modules
 import { MenubarModule } from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MenubarModule } from 'primeng/menubar';
     AppRoutingModule,
     HttpClientModule,
     MenubarModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
