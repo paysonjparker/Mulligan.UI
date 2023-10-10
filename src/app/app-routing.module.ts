@@ -5,12 +5,12 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
 
 const routes: Routes = [
   {
-    path: '**',
-    component: NotFoundComponent
-  },
-  {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   },
 ];
 
