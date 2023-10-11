@@ -20,6 +20,8 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { CardModule } from 'primeng/card';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { DropdownModule } from 'primeng/dropdown';
     TableModule,
     InputTextModule,
     DropdownModule,
+    CardModule,
+    ToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

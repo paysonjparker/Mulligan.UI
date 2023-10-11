@@ -1,3 +1,4 @@
-.user-create{
-    margin: 2rem
+.container{
+    max-width: fit-content;
+    margin: auto;
 }
