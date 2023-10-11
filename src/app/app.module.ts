@@ -22,6 +22,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
+import { GolfCourseListComponent } from './core/components/golf-course-components/golf-course-list/golf-course-list.component';
+import { GolfCourseProfilePageComponent } from './core/components/golf-course-components/golf-course-profile-page/golf-course-profile-page.component';
+import { CreateGolfCourseComponent } from './core/components/golf-course-components/create-golf-course/create-golf-course.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { ToastModule } from 'primeng/toast';
     NavigationBarComponent,
     UserProfilePageComponent,
     UserListComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    GolfCourseListComponent,
+    GolfCourseProfilePageComponent,
+    CreateGolfCourseComponent
   ],
   imports: [
     BrowserModule,

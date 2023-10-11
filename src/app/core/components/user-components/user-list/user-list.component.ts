@@ -15,7 +15,7 @@ export class UserListComponent {
 
   selectedUser!: any;
 
-  constructor(private router: Router, private userService: UserService, private golfCourseService: GolfCourseService){
+  constructor(private router: Router, private userService: UserService){
     
   }
 
