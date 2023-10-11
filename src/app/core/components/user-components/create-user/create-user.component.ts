@@ -26,22 +26,6 @@ export class CreateUserComponent implements OnInit {
     golfCourseId: "",
   }
 
-  // createUserForm = new FormGroup({
-    // username: new FormControl(),
-    // password: new FormControl(),
-    // name: new FormControl(),
-    // email: new FormControl(),
-    // golfCourse: new FormControl()
-  // });
-
-  // createUserForm = this.fb.group({
-  //   username: ['', Validators.required],
-  //   password: ['', Validators.required],
-  //   name: ['', Validators.required],
-  //   email: ['', Validators.required],
-  //   golfCourse: ['', Validators.required],
-  // }); 
-
   createUserForm!: FormGroup;
 
   constructor(private golfCourseService: GolfCourseService, private userService: UserService, private router: Router, private messageService: MessageService){}
