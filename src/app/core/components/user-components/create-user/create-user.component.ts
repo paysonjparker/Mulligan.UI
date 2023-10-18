@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { GolfCourse } from 'src/app/core/models/golf-course/golf-course.model';
 import { AddUser } from 'src/app/core/models/user/add-user.request';
-import { User } from 'src/app/core/models/user/user.model';
 import { GolfCourseService } from 'src/app/core/services/golf-course/golf-course.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 

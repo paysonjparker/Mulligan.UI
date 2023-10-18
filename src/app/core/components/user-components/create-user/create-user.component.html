@@ -2,7 +2,7 @@
     <p-card header="Add new user">
         <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
             <span class="p-float-label m-4">
-                <input type="text" id="username" pInputText formControlName="username" />
+                <input type="text" pInputText formControlName="username" />
                 <label htmlFor="username">Username</label>
                 <div *ngIf="username.invalid && (username.dirty || username.touched)">
                     <div *ngIf="username.errors?.['minlength']">
@@ -51,13 +51,9 @@
                     filterBy="name" placeholder="Select your home course"></p-dropdown>
                 <label htmlFor="golfCourse">Home Course</label>
             </span>
-            <ng-template pTemplate="footer">
-                Hello
-            </ng-template>
             <span class="p-float-label m-4">
                 <p-button type="submit" label="Submit" [disabled]="!createUserForm.valid"></p-button>
             </span>
         </form>
     </p-card>
-    <p-toast position="bottom-right" key="br"></p-toast>
 </div>

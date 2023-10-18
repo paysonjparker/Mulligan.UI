@@ -13,6 +13,8 @@ import { NavigationBarComponent } from './core/components/navigation-bar/navigat
 import { UserProfilePageComponent } from './core/components/user-components/user-profile-page/user-profile-page.component';
 import { UserListComponent } from './core/components/user-components/user-list/user-list.component';
 import { CreateUserComponent } from './core/components/user-components/create-user/create-user.component';
+import { GolfCourseListComponent } from './core/components/golf-course-components/golf-course-list/golf-course-list.component';
+import { GolfCourseProfilePageComponent } from './core/components/golf-course-components/golf-course-profile-page/golf-course-profile-page.component';
 
 // PrimeNg Modules
 import { MenubarModule } from 'primeng/menubar';
@@ -22,9 +24,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
-import { GolfCourseListComponent } from './core/components/golf-course-components/golf-course-list/golf-course-list.component';
-import { GolfCourseProfilePageComponent } from './core/components/golf-course-components/golf-course-profile-page/golf-course-profile-page.component';
-import { CreateGolfCourseComponent } from './core/components/golf-course-components/create-golf-course/create-golf-course.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +36,6 @@ import { CreateGolfCourseComponent } from './core/components/golf-course-compone
     CreateUserComponent,
     GolfCourseListComponent,
     GolfCourseProfilePageComponent,
-    CreateGolfCourseComponent
   ],
   imports: [
     BrowserModule,

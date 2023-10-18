@@ -36,18 +36,7 @@ export class NavigationBarComponent implements OnInit {
             {
               label: 'Golf Courses',
               icon: 'pi pi-flag',
-              items: [
-                {
-                  label: 'View Golf Courses',
-                  icon: 'pi pi-eye',
-                  routerLink: 'golfCourses',
-                },
-                {
-                  label: 'Create Golf Course',
-                  icon: 'pi pi-plus',
-                  routerLink: 'createGolfCourse'
-                }
-              ]
+              routerLink: 'golfCourses'
             },
         ];
     }

@@ -7,7 +7,6 @@ import { UserListComponent } from './core/components/user-components/user-list/u
 import { CreateUserComponent } from './core/components/user-components/create-user/create-user.component';
 import { GolfCourseListComponent } from './core/components/golf-course-components/golf-course-list/golf-course-list.component';
 import { GolfCourseProfilePageComponent } from './core/components/golf-course-components/golf-course-profile-page/golf-course-profile-page.component';
-import { CreateGolfCourseComponent } from './core/components/golf-course-components/create-golf-course/create-golf-course.component';
 
 const routes: Routes = [
   {
@@ -33,10 +32,6 @@ const routes: Routes = [
   {
     path: 'golfCourses/:Id',
     component: GolfCourseProfilePageComponent
-  },
-  {
-    path: 'createGolfCourse',
-    component: CreateGolfCourseComponent
   },
   {
     path: '**',
