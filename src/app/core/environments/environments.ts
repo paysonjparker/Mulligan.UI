@@ -1,3 +1,3 @@
 export const ennvironments = {
-    mulliganLocalApi: 'https://localhost:44309/api'
+    mulliganLocalApi: 'https://localhost:7096/api'
 }

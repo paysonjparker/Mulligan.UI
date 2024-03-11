@@ -14,12 +14,6 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllUsers(callback: (users: User[]) => void): void {
-    this.http.get<User[]>(this.mulliganApiUrl + "/Users").
-      subscribe((users: User[]) => {
-        callback(users);
-      });
-  }
   public getUserById(id : string) {
     return this.http.get<User>(this.mulliganApiUrl + "/Users/" + id);
   };
@@ -37,5 +31,11 @@ export class UserService {
       subscribe((data) => {
         callback();
       });
+  }
+
+  public getAllUsers(): Observable<User[]> {
+    const url = `${this.mulliganApiUrl}/Users`;
+
+    return this.http.get<User[]>(url);
   }
 }
