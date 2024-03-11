@@ -59,7 +59,6 @@ export class UserListComponent implements OnInit {
 
   getColumns() {
     this.cols = [
-      { header: 'Id', field: 'id', hide: true },
       { header: 'Username', field: 'username', hide: false },
       { header: 'Name', field: 'name', hide: false },
       { header: 'Email', field: 'email', hide: true },

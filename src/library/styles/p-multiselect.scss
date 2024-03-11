@@ -1,0 +1,51 @@
+::ng-deep {
+
+    .p-inputwrapper-filled .p-multiselect.p-multiselect-chip .p-multiselect-label {
+        padding: 0.2rem 0.75rem;
+    }
+
+    .p-multiselect-label {
+        color: $mulligan-gray-color-900;
+    }
+
+    .p-multiselect.p-multiselect-chip .p-multiselect-token {
+        padding: 0.375rem 0.75rem;
+        margin-right: 0.5rem;
+        border-radius: 16px;
+        color: $mulligan-bg-color-gray-100;
+        background-color: $mulligan-accent-green;
+        font-size: 14px;
+    }
+
+    .p-multiselect-panel .p-multiselect-items-wrapper .p-multiselect-items {
+        padding-left: 0;
+    }
+
+    .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+        background: $mulligan-green;
+    }
+
+    .p-multiselect-item .p-checkbox .p-checkbox-box.p-highlight {
+        background: $mulligan-accent-green;
+    }
+
+    .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
+        color: $mulligan-gray-color-900;
+    }
+
+    .p-multiselect .p-multiselect-trigger {
+        color: $mulligan-accent-green;
+    }
+
+    .p-multiselect-header .p-checkbox .p-checkbox-box.p-highlight {
+        background: $mulligan-accent-green;
+    }
+
+    .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
+        color: $mulligan-gray-color-900;
+    }
+
+    .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+        color: $mulligan-bg-color-gray-100;
+    }
+}

@@ -1,0 +1,46 @@
+@import './variables.scss';
+
+::ng-deep {
+    p-table {
+        box-sizing: border-box;
+        font-size: 1rem;
+        font-weight: normal;
+        color: $mulligan-gray-color-900;
+    }
+
+    .p-datatable .p-datatable-thead>tr>th {
+        color: $mulligan-gray-color-900;
+        font-weight: 700;
+    }
+
+    .p-datatable .p-datatable-tbody>tr {
+        color: $mulligan-gray-color-900;
+        font-weight: 400;
+    }
+
+    .p-datatable.p-datatable-striped .p-datatable-tbody>tr:nth-child(even) {
+        background: $mulligan-accent-green;
+        border-top: 1px solid $mulligan-gray-color-400;
+        border-bottom: 1px solid $mulligan-gray-color-400;
+    }
+
+    .p-datatable .p-sortable-column.p-highlight {
+        background: $mulligan-gray-color-100;
+        color: $mulligan-green;
+    }
+
+    .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+        color: $mulligan-green;
+    }
+
+    .p-column-filter-menu-button.p-column-filter-menu-button-active,
+    .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {
+        background: $mulligan-accent-green;
+        color: $mulligan-gray-color-100;
+        border-radius: 4px;
+    }
+
+    .table-last-column {
+        text-align: center;
+    }
+}
