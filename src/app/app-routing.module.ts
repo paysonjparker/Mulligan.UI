@@ -4,19 +4,67 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
 import { PostListComponent } from './core/components/post-components/post-list/post-list.component';
 import { GolfCourseListComponent } from './core/components/golf-course-components/golf-course-list/golf-course-list.component';
 import { UserListComponent } from './core/components/user-components/user-list/user-list.component';
+import { GolfCourseMaintenanceComponent } from './core/components/golf-course-components/golf-course-maintenance/golf-course-maintenance.component';
+import { UserMaintenanceComponent } from './core/components/user-components/user-maintenance/user-maintenance.component';
+import { PostMaintenanceComponent } from './core/components/post-components/post-maintenance/post-maintenance.component';
+import { ScoreMaintenanceComponent } from './core/components/score-components/score-maintenance/score-maintenance.component';
+import { ScoreListComponent } from './core/components/score-components/score-list/score-list.component';
 
 const routes: Routes = [
   {
+    title: 'Home',
     path: '',
     component: PostListComponent
   },
   {
+    title: 'Add Post',
+    path: 'posts/create',
+    component: PostMaintenanceComponent
+  },
+  {
+    title: 'Edit Post',
+    path: 'posts/edit/:Id',
+    component: PostMaintenanceComponent
+  },
+  {
+    title: 'Golf Courses',
     path: 'golfCourses',
     component: GolfCourseListComponent
   },
   {
+    title: 'Create Golf Course',
+    path: 'golfCourses/create',
+    component: GolfCourseMaintenanceComponent
+  },
+  {
+    title: 'Edit Golf Course',
+    path: 'golfCourses/edit/:Id',
+    component: GolfCourseMaintenanceComponent
+  },
+  {
+    title: 'Users',
     path: 'users',
     component: UserListComponent
+  },
+  {
+    title: 'Create User',
+    path: 'users/create',
+    component: UserMaintenanceComponent
+  },
+  {
+    title: 'Edit User',
+    path: 'users/edit/:Id',
+    component: UserMaintenanceComponent
+  },
+  {
+    title: 'View Scores',
+    path: 'scores',
+    component: ScoreListComponent
+  },
+  {
+    title: 'Add Score',
+    path: 'scores/create',
+    component: ScoreMaintenanceComponent
   },
   {
     path: '**',
