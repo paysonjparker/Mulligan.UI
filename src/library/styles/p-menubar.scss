@@ -1,0 +1,9 @@
+@import './variables.scss';
+
+::ng-deep {
+
+    .p-menu-item- .p-menuitem-text {
+        color: $mulligan-gray-900;
+        text-decoration: none;
+    }
+}
