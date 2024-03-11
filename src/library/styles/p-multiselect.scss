@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 ::ng-deep {
 
     .p-inputwrapper-filled .p-multiselect.p-multiselect-chip .p-multiselect-label {
@@ -5,15 +7,15 @@
     }
 
     .p-multiselect-label {
-        color: $mulligan-gray-color-900;
+        color: $mulligan-gray-900;
     }
 
     .p-multiselect.p-multiselect-chip .p-multiselect-token {
         padding: 0.375rem 0.75rem;
         margin-right: 0.5rem;
         border-radius: 16px;
-        color: $mulligan-bg-color-gray-100;
-        background-color: $mulligan-accent-green;
+        color: $mulligan-bg-gray-100;
+        background-color: $mulligan-green-accent;
         font-size: 14px;
     }
 
@@ -22,30 +24,30 @@
     }
 
     .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
-        background: $mulligan-green;
+        background: $mulligan-green-main;
     }
 
     .p-multiselect-item .p-checkbox .p-checkbox-box.p-highlight {
-        background: $mulligan-accent-green;
+        background: $mulligan-green-main;
     }
 
     .p-multiselect-panel .p-multiselect-items .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
-        color: $mulligan-gray-color-900;
+        color: $mulligan-gray-900;
     }
 
     .p-multiselect .p-multiselect-trigger {
-        color: $mulligan-accent-green;
+        color: $mulligan-green-main;
     }
 
     .p-multiselect-header .p-checkbox .p-checkbox-box.p-highlight {
-        background: $mulligan-accent-green;
+        background: $mulligan-green-main;
     }
 
     .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
-        color: $mulligan-gray-color-900;
+        color: $mulligan-gray-900;
     }
 
     .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
-        color: $mulligan-bg-color-gray-100;
+        color: $mulligan-bg-gray-100;
     }
 }

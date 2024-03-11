@@ -1,0 +1,17 @@
+@import './variables.scss';
+
+::ng-deep {
+
+    .p-card .p-card-title {
+        font-size: 22px;
+        color: $mulligan-gray-900;
+    }
+
+    .p-card .p-card-body {
+        padding: 1rem;
+    }
+
+    .p-card .p-card-content {
+        padding: 0rem;
+    }
+}

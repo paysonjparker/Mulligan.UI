@@ -5,42 +5,25 @@
         box-sizing: border-box;
         font-size: 1rem;
         font-weight: normal;
-        color: $mulligan-gray-color-900;
-    }
-
-    .p-datatable .p-datatable-thead>tr>th {
-        color: $mulligan-gray-color-900;
-        font-weight: 700;
-    }
-
-    .p-datatable .p-datatable-tbody>tr {
-        color: $mulligan-gray-color-900;
-        font-weight: 400;
+        color: $mulligan-gray-900;
     }
 
     .p-datatable.p-datatable-striped .p-datatable-tbody>tr:nth-child(even) {
-        background: $mulligan-accent-green;
-        border-top: 1px solid $mulligan-gray-color-400;
-        border-bottom: 1px solid $mulligan-gray-color-400;
+        border-top: 1px solid $mulligan-gray-900;
+        border-bottom: 1px solid $mulligan-gray-900;
+        background-color: $mulligan-green-tertiary;
     }
 
-    .p-datatable .p-sortable-column.p-highlight {
-        background: $mulligan-gray-color-100;
-        color: $mulligan-green;
+    .p-datatable .p-sortable-column {
+        color: $mulligan-gray-900;
     }
 
-    .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
-        color: $mulligan-green;
+    .p-datatable .p-sortable-column:hover {
+        background-color: $mulligan-green-tertiary;
     }
 
-    .p-column-filter-menu-button.p-column-filter-menu-button-active,
-    .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {
-        background: $mulligan-accent-green;
-        color: $mulligan-gray-color-100;
-        border-radius: 4px;
+    .p-datatable .p-sortable-column .p-sortable-column-icon {
+        color: $mulligan-gray-900;
     }
 
-    .table-last-column {
-        text-align: center;
-    }
 }

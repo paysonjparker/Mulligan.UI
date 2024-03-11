@@ -2,11 +2,12 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+@import 'src/library/styles/variables.scss';
 
 .html,
 body {
     font-family: var(--font-family);
-    background-color: #07665121;
+    background-color: $mulligan-green-tertiary;
 }
 
 main {

@@ -1,6 +1,7 @@
-.menubar-title{
+@import "src/library/styles/p-menubar.scss";
+
+.menubar-title {
     font-size: 28px;
     font-weight: 700;
     color: var(--mulligan-green);
 }
-

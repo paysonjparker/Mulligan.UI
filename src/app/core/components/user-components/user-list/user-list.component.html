@@ -6,17 +6,17 @@
         <ng-template pTemplate="caption">
             <span class="ml-auto">
                 <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
-                    selectedItemsLabel="{0} columns selected" [style]="{'min-width': '200px'}"
+                    selectedItemsLabel="{0} columns selected" [style]="{'min-width': '240px'}"
                     placeholder="Choose Columns"></p-multiSelect>
             </span>
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
-                <th *ngFor="let col of columns" pResizableColumn pSortableColumn="{{col.header}}">
+                <th *ngFor="let col of columns" pResizableColumn pSortableColumn="{{col.field}}">
                     <ng-container>
                         {{col.header}}
                     </ng-container>
-                    <p-sortIcon field="{{col.header}}"></p-sortIcon>
+                    <p-sortIcon field="{{col.field}}"></p-sortIcon>
                 </th>
             </tr>
         </ng-template>
