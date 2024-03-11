@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
     ButtonModule
   ],
   templateUrl: './not-found.component.html',
-  styleUrls: ['./not-found.component.css']
+  styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent {
 

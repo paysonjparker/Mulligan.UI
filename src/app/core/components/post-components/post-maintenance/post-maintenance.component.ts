@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './post-maintenance.component.html',
-  styleUrls: ['./post-maintenance.component.css']
+  styleUrls: ['./post-maintenance.component.scss']
 })
 export class PostMaintenanceComponent {
 

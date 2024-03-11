@@ -11,7 +11,7 @@ import { MenubarModule } from 'primeng/menubar';
     MenubarModule
   ],
   templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.css']
+  styleUrls: ['./navigation-bar.component.scss']
 })
 export class NavigationBarComponent implements OnInit{
 

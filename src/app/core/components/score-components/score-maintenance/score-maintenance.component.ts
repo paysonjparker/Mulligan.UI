@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './score-maintenance.component.html',
-  styleUrls: ['./score-maintenance.component.css']
+  styleUrls: ['./score-maintenance.component.scss']
 })
 export class ScoreMaintenanceComponent {
 
