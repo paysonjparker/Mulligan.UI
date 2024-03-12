@@ -10,6 +10,7 @@ import { PostMaintenanceComponent } from './core/components/post-components/post
 import { ScoreMaintenanceComponent } from './core/components/score-components/score-maintenance/score-maintenance.component';
 import { ScoreListComponent } from './core/components/score-components/score-list/score-list.component';
 import { UpdateUserComponent } from './core/components/user-components/update-user/update-user.component';
+import { UserDetailsComponent } from './core/components/user-components/user-details/user-details.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,11 @@ const routes: Routes = [
     title: 'Create User',
     path: 'users/create',
     component: CreateUserComponent
+  },
+  {
+    title: 'View User',
+    path: 'users/:Id',
+    component: UserDetailsComponent
   },
   {
     title: 'Edit User',
