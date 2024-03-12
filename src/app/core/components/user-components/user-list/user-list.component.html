@@ -4,11 +4,8 @@
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[10, 20, 50]" [resizableColumns]="true">
         <ng-template pTemplate="caption">
-            <span class="ml-auto">
-                <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
-                    selectedItemsLabel="{0} columns selected" [style]="{'min-width': '240px'}"
-                    placeholder="Choose Columns"></p-multiSelect>
-            </span>
+            <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+                selectedItemsLabel="{0} columns selected" placeholder="Choose Columns"></p-multiSelect>
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>

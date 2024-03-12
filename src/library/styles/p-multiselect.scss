@@ -2,6 +2,10 @@
 
 ::ng-deep {
 
+    .p-multiselect {
+        max-width: 240px;
+    }
+
     .p-inputwrapper-filled .p-multiselect.p-multiselect-chip .p-multiselect-label {
         padding: 0.2rem 0.75rem;
     }
