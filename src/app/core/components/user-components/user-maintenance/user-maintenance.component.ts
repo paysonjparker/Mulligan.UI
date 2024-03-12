@@ -103,7 +103,7 @@ export class UserMaintenanceComponent implements OnInit, AfterViewChecked, OnDes
         console.error(error);
       },
     });
-    this.router.navigate(['/users']);
+    this.back()
   }
 
   updateUser() {
