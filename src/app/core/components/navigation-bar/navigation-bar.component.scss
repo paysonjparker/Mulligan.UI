@@ -1,7 +1,13 @@
 @import "src/library/styles/p-menubar.scss";
+@import "src/library/styles/p-dropdown.scss";
+@import "src/library/styles/variables.scss";
 
 .menubar-title {
     font-size: 28px;
     font-weight: 700;
-    color: var(--mulligan-green);
+    color: $mulligan-gray-100;
+}
+
+.card {
+    background-color: $mulligan-green-tertiary;
 }

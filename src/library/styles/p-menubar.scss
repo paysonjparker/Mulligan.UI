@@ -2,8 +2,36 @@
 
 ::ng-deep {
 
-    .p-menu-item- .p-menuitem-text {
-        color: $mulligan-gray-900;
+    .p-menubar {
+        background-color: $mulligan-green-main;
+    }
+
+    .p-menubar .p-menuitem-link {
+        background-color: $mulligan-green-highlight;
         text-decoration: none;
+        text-align: center;
+    }
+
+    .p-menubar .p-menuitem-link:hover {
+        background-color: $mulligan-green-highlight;
+    }
+
+    .p-menubar .p-submenu-list {
+        background-color: $mulligan-green-main;
+        padding: 0px;
+    }
+
+    .p-menubar .p-menuitem-text {
+        color: $mulligan-gray-100;
+        font-weight: 500;
+    }
+
+    .p-menubar .p-menuitem-icon {
+        color: $mulligan-gray-100;
+        font-weight: 500;
+    }
+
+    .p-menubar .p-submenu-icon {
+        color: $mulligan-gray-100;
     }
 }
