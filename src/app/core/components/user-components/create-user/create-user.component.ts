@@ -11,9 +11,11 @@ import { GolfCourseService } from 'src/app/core/services/golf-course/golf-course
 import { Subscription } from 'rxjs';
 import { AddUser } from 'src/app/core/models/user/add-user.request';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/core/models/user/user.model';
+import { UpdateUser } from 'src/app/core/models/user/update-user.request';
 
 @Component({
-  selector: 'app-user-maintenance',
+  selector: 'app-create-user',
   standalone: true,
   imports: [
     CommonModule,
@@ -24,20 +26,16 @@ import { ActivatedRoute, Router } from '@angular/router';
     DropdownModule,
     ButtonModule,
   ],
-  templateUrl: './user-maintenance.component.html',
-  styleUrls: ['./user-maintenance.component.scss']
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.scss']
 })
-export class UserMaintenanceComponent implements OnInit, AfterViewChecked, OnDestroy {
+export class CreateUserComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   userMaintenanceForm!: FormGroup;
 
   golfCourses: GolfCourse[] = [];
 
   subscriptions!: Subscription;
-
-  isEdit = false;
-
-  userId: string;
 
   constructor(private userService: UserService,
     private golfCourseService: GolfCourseService,
@@ -46,12 +44,7 @@ export class UserMaintenanceComponent implements OnInit, AfterViewChecked, OnDes
     private route: ActivatedRoute,
     private cdrf: ChangeDetectorRef,
     private ngZone: NgZone,
-  ) {
-    this.userId = this.route?.parent?.snapshot.params['Id'];
-    if (this.userId) {
-      this.isEdit = true;
-    }
-  }
+  ) { }
 
   ngOnInit() {
     this.userMaintenanceForm = this.createUserMaintenanceForm();
@@ -106,10 +99,6 @@ export class UserMaintenanceComponent implements OnInit, AfterViewChecked, OnDes
     this.back()
   }
 
-  updateUser() {
-
-  }
-
   validateRequiredFields(formControlName: any) {
     if (this.userMaintenanceForm.controls[formControlName].invalid && (this.userMaintenanceForm.controls[formControlName].dirty || this.userMaintenanceForm.controls[formControlName].touched)) {
       return true;
@@ -118,11 +107,7 @@ export class UserMaintenanceComponent implements OnInit, AfterViewChecked, OnDes
   }
 
   save() {
-    if (this.isEdit) {
-      this.updateUser();
-    } else {
-      this.createUser();
-    }
+    this.createUser();
   }
 
   clearForm() {

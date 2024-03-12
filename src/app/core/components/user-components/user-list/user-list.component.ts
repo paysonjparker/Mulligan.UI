@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { Subscription } from 'rxjs';
 import { ButtonModule } from 'primeng/button';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -20,6 +21,7 @@ import { ButtonModule } from 'primeng/button';
     MultiSelectModule,
     CardModule,
     ButtonModule,
+    RouterLink
   ],
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
@@ -42,7 +44,10 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   subscriptions!: Subscription;
 
-  constructor(private userService: UserService, private cdrf: ChangeDetectorRef) { }
+  constructor(private userService: UserService,
+    private cdrf: ChangeDetectorRef,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.getAllUsers();
@@ -77,7 +82,7 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.columnsToDisplay = this.cols.filter(col => !col.hide);
   }
 
-  onEditClick() {
-
+  onEditClick(userId: string) {
+    this.router.navigate(['/users/edit', userId]);
   }
 }

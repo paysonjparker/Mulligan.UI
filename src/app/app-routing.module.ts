@@ -5,10 +5,11 @@ import { PostListComponent } from './core/components/post-components/post-list/p
 import { GolfCourseListComponent } from './core/components/golf-course-components/golf-course-list/golf-course-list.component';
 import { UserListComponent } from './core/components/user-components/user-list/user-list.component';
 import { GolfCourseMaintenanceComponent } from './core/components/golf-course-components/golf-course-maintenance/golf-course-maintenance.component';
-import { UserMaintenanceComponent } from './core/components/user-components/user-maintenance/user-maintenance.component';
+import { CreateUserComponent } from './core/components/user-components/create-user/create-user.component';
 import { PostMaintenanceComponent } from './core/components/post-components/post-maintenance/post-maintenance.component';
 import { ScoreMaintenanceComponent } from './core/components/score-components/score-maintenance/score-maintenance.component';
 import { ScoreListComponent } from './core/components/score-components/score-list/score-list.component';
+import { UpdateUserComponent } from './core/components/user-components/update-user/update-user.component';
 
 const routes: Routes = [
   {
@@ -49,12 +50,12 @@ const routes: Routes = [
   {
     title: 'Create User',
     path: 'users/create',
-    component: UserMaintenanceComponent
+    component: CreateUserComponent
   },
   {
     title: 'Edit User',
     path: 'users/edit/:Id',
-    component: UserMaintenanceComponent
+    component: UpdateUserComponent
   },
   {
     title: 'View Scores',

@@ -23,9 +23,9 @@
                 <td *ngFor="let col of columns">
                     {{user[col.field]}}
                 </td>
-                <td>
+                <td routerLink="/users/edit/{{user.id}}">
                     <p-button styleClass="p-button-edit-icon" icon="pi pi-pencil" [rounded]="true" [text]="true"
-                        severity="success" (onClick)="onEditClick()"></p-button>
+                        severity="success"></p-button>
                 </td>
             </tr>
         </ng-template>
