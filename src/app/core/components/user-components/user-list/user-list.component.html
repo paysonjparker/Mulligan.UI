@@ -23,8 +23,8 @@
                 <td *ngFor="let col of columns">
                     {{user[col.field]}}
                 </td>
-                <td routerLink="/users/edit/{{user.id}}">
-                    <p-button styleClass="p-button-edit-icon" icon="pi pi-pencil" [rounded]="true" [text]="true"
+                <td routerLink="/users/{{user.id}}">
+                    <p-button styleClass="p-button-edit-icon" icon="pi pi-eye" [rounded]="true" [text]="true"
                         severity="success"></p-button>
                 </td>
             </tr>
