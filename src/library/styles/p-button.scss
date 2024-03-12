@@ -82,4 +82,17 @@
         text-decoration: underline;
     }
 
+    .p-button.p-button-edit-icon {
+        background-color: transparent;
+        color: $mulligan-green-main;
+        border: 0px;
+        border-radius: 2rem;
+    }
+
+    .p-button.p-button-edit-icon:hover {
+        background-color: $mulligan-gray-200;
+        color: $mulligan-green-main;
+        border: 0px;
+        border-radius: 2rem;
+    }
 }

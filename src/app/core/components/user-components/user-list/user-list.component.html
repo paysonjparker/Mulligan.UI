@@ -15,12 +15,17 @@
                     </ng-container>
                     <p-sortIcon field="{{col.field}}"></p-sortIcon>
                 </th>
+                <th style="width: 5rem"></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-user let-columns="columns">
             <tr>
                 <td *ngFor="let col of columns">
                     {{user[col.field]}}
+                </td>
+                <td>
+                    <p-button styleClass="p-button-edit-icon" icon="pi pi-pencil" [rounded]="true" [text]="true"
+                        severity="success" (onClick)="onEditClick()"></p-button>
                 </td>
             </tr>
         </ng-template>

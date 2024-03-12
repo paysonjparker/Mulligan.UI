@@ -8,6 +8,7 @@ import { Column } from 'src/app/core/models/column/column.model';
 import { FormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { Subscription } from 'rxjs';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-user-list',
@@ -18,6 +19,7 @@ import { Subscription } from 'rxjs';
     TableModule,
     MultiSelectModule,
     CardModule,
+    ButtonModule,
   ],
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
@@ -73,5 +75,9 @@ export class UserListComponent implements OnInit, OnDestroy {
     ];
 
     this.columnsToDisplay = this.cols.filter(col => !col.hide);
+  }
+
+  onEditClick() {
+
   }
 }
