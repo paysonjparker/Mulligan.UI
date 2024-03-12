@@ -1,4 +1,4 @@
-import { AfterViewChecked, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
@@ -45,6 +45,7 @@ export class UserMaintenanceComponent implements OnInit, AfterViewChecked, OnDes
     private router: Router,
     private route: ActivatedRoute,
     private cdrf: ChangeDetectorRef,
+    private ngZone: NgZone,
   ) {
     this.userId = this.route?.parent?.snapshot.params['Id'];
     if (this.userId) {
@@ -129,6 +130,8 @@ export class UserMaintenanceComponent implements OnInit, AfterViewChecked, OnDes
   }
 
   back() {
-    this.router.navigate(['/users']);
+    this.ngZone.run(() => {
+      this.router.navigate(['/users']);
+    });
   }
 }
