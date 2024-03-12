@@ -7,9 +7,8 @@
     }
 
     .p-menubar .p-menuitem-link {
-        background-color: $mulligan-green-highlight;
+        background-color: $mulligan-green-main;
         text-decoration: none;
-        text-align: center;
     }
 
     .p-menubar .p-menuitem-link:hover {
@@ -34,4 +33,18 @@
     .p-menubar .p-submenu-icon {
         color: $mulligan-gray-100;
     }
+
+    .p-menubar .p-menubar-button {
+        color: $mulligan-gray-100;
+    }
+
+    .p-menubar .p-menubar-button:hover {
+        color: $mulligan-green-main;
+    }
+
+    .p-menubar .p-menubar-root-list {
+        background-color: $mulligan-green-main;
+        padding-left: 0px;
+    }
+
 }
