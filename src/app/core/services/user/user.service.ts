@@ -14,23 +14,20 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public getUserById(id : string) {
+  public getUserById(id: string) {
     return this.http.get<User>(this.mulliganApiUrl + "/Users/" + id);
   };
 
   public deleteUser(id: string): Observable<void> {
     return this.http.delete<void>(this.mulliganApiUrl + "/Users/" + id);
   }
-  
+
   public updateUser(id: string, user: AddUser): Observable<User> {
     return this.http.put<User>(this.mulliganApiUrl + "/Users/" + id, user);
   }
 
-  public addUser(user: AddUser, callback:() => void): void {
-    this.http.post<User>(this.mulliganApiUrl + "/Users", user).
-      subscribe((data) => {
-        callback();
-      });
+  public addUser(user: AddUser): Observable<User> {
+    return this.http.post<User>(this.mulliganApiUrl + "/Users", user);
   }
 
   public getAllUsers(): Observable<User[]> {

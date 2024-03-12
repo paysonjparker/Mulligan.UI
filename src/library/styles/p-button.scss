@@ -1,0 +1,85 @@
+@import './variables.scss';
+
+::ng-deep {
+
+    // p-button.p-element,
+    // p-button button.p-ripple.p-element.p-button.p-component {
+    //     width: 100%;
+    // }
+
+    .p-column-filter-buttonbar .p-button-outlined.p-button,
+    .p-button-outlined .p-button {
+        color: $mulligan-green-main;
+        background: none;
+        border: 2px solid $mulligan-green-main;
+    }
+
+    .p-column-filter-buttonbar .p-button-outlined.p-button:hover,
+    .p-button-outlined .p-button:hover {
+        color: $mulligan-green-main;
+        background: $mulligan-green-highlight;
+    }
+
+    .p-column-filter-buttonbar .p-button-outlined.p-button:enabled:active,
+    .p-button-outlined .p-button:enabled:active {
+        color: $mulligan-green-main;
+        background: $mulligan-green-highlight;
+    }
+
+    .p-button-outlined .p-button.p-disabled {
+        color: $mulligan-gray-550;
+        background: none;
+        border: 2px solid $mulligan-gray-700;
+    }
+
+    .p-button {
+        background-color: $mulligan-green-main;
+        color: $mulligan-bg-gray-100;
+        border-radius: 4px;
+        border: 2px solid $mulligan-green-main;
+    }
+
+    .p-button:hover {
+        color: $mulligan-bg-gray-100;
+        background-color: $mulligan-green-highlight;
+    }
+
+    .p-button:enabled:active {
+        color: $mulligan-bg-gray-100;
+        background: $mulligan-green-main;
+    }
+
+    .p-button.p-disabled {
+        color: $mulligan-bg-gray-100;
+        background: $mulligan-green-main;
+        border: 2px solid $mulligan-gray-700;
+    }
+
+    .p-button.p-button-secondary {
+        background-color: $mulligan-gray-800;
+        color: $mulligan-bg-gray-100;
+        border-radius: 4px;
+        border: 2px solid $mulligan-gray-800;
+    }
+
+    .p-button.p-button-secondary:hover {
+        background-color: $mulligan-gray-600;
+        color: $mulligan-bg-gray-100;
+        border-radius: 4px;
+        border: 2px solid $mulligan-gray-600;
+    }
+
+    .p-button.p-button-clear-form {
+        float: right;
+        background-color: transparent;
+        color: $mulligan-green-main;
+        border-radius: 4px;
+        border: transparent;
+    }
+
+    .p-button.p-button-clear-form:hover {
+        background-color: $mulligan-gray-100;
+        text-decoration: underline;
+    }
+
+}

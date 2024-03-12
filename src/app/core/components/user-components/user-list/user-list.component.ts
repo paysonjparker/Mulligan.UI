@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -7,6 +7,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 import { Column } from 'src/app/core/models/column/column.model';
 import { FormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -21,7 +22,7 @@ import { CardModule } from 'primeng/card';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
 
   users: User[] = [];
 
@@ -37,6 +38,7 @@ export class UserListComponent implements OnInit {
     this.columnsToDisplay = this.cols.filter(col => val.includes(col));
   }
 
+  subscriptions!: Subscription;
 
   constructor(private userService: UserService, private cdrf: ChangeDetectorRef) { }
 
@@ -45,8 +47,12 @@ export class UserListComponent implements OnInit {
     this.getColumns();
   }
 
+  ngOnDestroy() {
+    this.subscriptions?.unsubscribe();
+  }
+
   getAllUsers() {
-    this.userService.getAllUsers().subscribe({
+    this.subscriptions = this.userService.getAllUsers().subscribe({
       next: (data) => {
         this.users = data;
         this.cdrf.markForCheck();

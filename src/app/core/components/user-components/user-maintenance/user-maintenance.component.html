@@ -1,1 +1,61 @@
-<p>user-maintenance works!</p>
+<p-card header="Create User">
+    <hr>
+    <div [formGroup]="userMaintenanceForm" novalidate>
+        <div class="row pb-2 pt-2">
+            <div class="col-md-6">
+                <label class="pb-2" htmlFor="username" for="username">Username</label>
+                <input pInputText class="p-inputtext" id="username" aria-describedby="username"
+                    formControlName="username" [ngClass]="{'border-danger': validateRequiredFields('username')}" />
+                <div *ngIf="userMaintenanceForm.get('username')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('username')" id="username">
+                        Username is required.</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="pb-2" htmlFor="password" for="password">Password</label>
+                <input type="password" pInputText class="p-inputtext" id="password" aria-describedby="password"
+                    formControlName="password" [ngClass]="{'border-danger': validateRequiredFields('password')}" />
+                <div *ngIf="userMaintenanceForm.get('password')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('password')" id="password">
+                        Password is required.</small>
+                </div>
+            </div>
+        </div>
+        <div class="row pb-2 pt-2">
+            <div class="col-md-4">
+                <label class="pb-2" htmlFor="name" for="name">Full Name</label>
+                <input pInputText class="p-inputtext" id="name" aria-describedby="name" formControlName="name"
+                    [ngClass]="{'border-danger': validateRequiredFields('name')}" />
+                <div *ngIf="userMaintenanceForm.get('name')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('name')" id="name">
+                        Full name is required.</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="pb-2" htmlFor="email" for="email">Email Address</label>
+                <input type="email" pInputText class="p-inputtext" id="email" aria-describedby="email"
+                    formControlName="email" [ngClass]="{'border-danger': validateRequiredFields('email')}" />
+                <div *ngIf="userMaintenanceForm.get('email')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('email')" id="email">
+                        Email address is required.</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="pb-2" htmlFor="golfCourseId" for="golfCourseId">Home Course</label>
+                <p-dropdown formControlName="golfCourseId" [options]="golfCourses" optionLabel="name" optionValue="id"
+                    placeholder="Select a Golf Course"></p-dropdown>
+                <div *ngIf="userMaintenanceForm.get('golfCourseId')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('golfCourseId')" id="golfCourseId">
+                        Home course is required.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template pTemplate="footer">
+        <p-button label="Save" icon="pi pi-check"
+            [disabled]="userMaintenanceForm.invalid || userMaintenanceForm.pristine" (onClick)="save()"></p-button>
+        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"
+            (onClick)="back()"></p-button>
+        <p-button label="Clear Form" [text]="true" styleClass="p-button-clear-form" (onClick)="clearForm()"></p-button>
+    </ng-template>
+</p-card>

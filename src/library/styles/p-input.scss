@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+
+::ng-deep {
+
+    .p-inputtext {
+        width: 100%;
+        color: $mulligan-gray-900;
+        font-size: 16px;
+    }
+}
