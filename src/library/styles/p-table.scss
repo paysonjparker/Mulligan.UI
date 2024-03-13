@@ -14,12 +14,15 @@
         background-color: $mulligan-green-tertiary;
     }
 
-    .p-datatable .p-sortable-column {
+    th {
         color: $mulligan-gray-900;
+        background-color: $mulligan-green-tertiary;
+        border-top: 1px solid $mulligan-green-main;
+        border-bottom: 1px solid $mulligan-green-main;
     }
 
     .p-datatable .p-sortable-column:hover {
-        background-color: $mulligan-green-tertiary;
+        background-color: $mulligan-green-accent;
     }
 
     .p-datatable .p-sortable-column .p-sortable-column-icon {
