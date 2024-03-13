@@ -1,5 +1,5 @@
 <p-card header="Golf Courses">
-    <p-table [value]="golfCourses" [columns]="selectedColumns" [paginator]="true" [rows]="10"
+    <p-table [value]="golfCourses" selectionMode="single" [columns]="selectedColumns" [paginator]="true" [rows]="10"
         [showCurrentPageReport]="true" styleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} Golf Courses"
         [rowsPerPageOptions]="[10, 20, 50]" [resizableColumns]="true">
@@ -19,13 +19,13 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-golfCourse let-columns="columns">
-            <tr>
-                <td *ngFor="let col of columns">
+            <tr [pSelectableRow]="golfCourse">
+                <td *ngFor="let col of columns" routerLink="/golfCourses/{{golfCourse.id}}">
                     {{golfCourse[col.field]}}
                 </td>
                 <td routerLink="/golfCourses/{{golfCourse.id}}">
-                    <p-button styleClass="p-button-edit-icon" icon="pi pi-eye" [rounded]="true" [text]="true"
-                        severity="success"></p-button>
+                    <p-button styleClass="p-button-delete-icon" icon="pi pi-trash" [rounded]="true"
+                        [text]="true"></p-button>
                 </td>
             </tr>
         </ng-template>

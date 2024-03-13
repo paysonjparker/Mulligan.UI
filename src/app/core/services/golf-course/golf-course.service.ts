@@ -37,11 +37,8 @@ export class GolfCourseService {
     return this.http.put<GolfCourse>(this.mulliganApiUrl + "/GolfCourses/" + id, golfCourse);
   }
 
-  public addGolfCourse(golfCourse: AddGolfCourse, callback: () => void): void {
-    this.http.post<GolfCourse>(this.mulliganApiUrl + "/GolfCourses", golfCourse).
-      subscribe((data) => {
-        callback();
-      });
+  public addGolfCourse(golfCourse: AddGolfCourse): Observable<GolfCourse> {
+    return this.http.post<GolfCourse>(this.mulliganApiUrl + "/GolfCourses", golfCourse);
   }
 
   public getGolfCourseNames(callback: (golfCourseNames: string[]) => void): void {

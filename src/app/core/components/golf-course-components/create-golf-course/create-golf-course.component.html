@@ -1,1 +1,72 @@
-<p>golf-course-create works!</p>
+<p-card header="Create Golf Course">
+    <hr>
+    <div [formGroup]="createGolfCourseForm" novalidate>
+        <div class="row pb-2 pt-2">
+            <div class="col-md-6">
+                <label class="pb-2" htmlFor="name" for="name">Golf Course Name</label>
+                <input pInputText class="p-inputtext" id="name" aria-describedby="name" formControlName="name"
+                    [ngClass]="{'border-danger': validateRequiredFields('name')}" />
+                <div *ngIf="createGolfCourseForm.get('name')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('name')" id="name">
+                        Golf Course Name is required.</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="pb-2" htmlFor="location" for="location">Location</label>
+                <input type="location" pInputText class="p-inputtext" id="location" aria-describedby="location"
+                    formControlName="location" [ngClass]="{'border-danger': validateRequiredFields('location')}" />
+                <div *ngIf="createGolfCourseForm.get('location')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('location')" id="location">
+                        Location is required.</small>
+                </div>
+            </div>
+        </div>
+        <div class="row pb-2 pt-2">
+            <div class="col-md-3">
+                <label class="pb-2" htmlFor="yardage" for="yardage">Yardage</label>
+                <p-inputNumber class="p-inputnumber" id="yardage" aria-describedby="yardage" formControlName="yardage"
+                    [ngClass]="{'border-danger': validateRequiredFields('yardage')}" />
+                <div *ngIf="createGolfCourseForm.get('yardage')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('yardage')" id="yardage">
+                        Yardage is required.</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="pb-2" htmlFor="par" for="par">Par</label>
+                <p-inputNumber class="p-inputnumber" id="par" aria-describedby="par" formControlName="par"
+                    [ngClass]="{'border-danger': validateRequiredFields('par')}" />
+                <div *ngIf="createGolfCourseForm.get('par')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('par')" id="par">
+                        Par is required.</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="pb-2" htmlFor="courseRating" for="courseRating">Course Rating</label>
+                <p-inputNumber class="p-inputnumber" id="courseRating" aria-describedby="courseRating"
+                    formControlName="courseRating" [maxFractionDigits]="1"
+                    [ngClass]="{'border-danger': validateRequiredFields('courseRating')}" />
+                <div *ngIf="createGolfCourseForm.get('courseRating')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('courseRating')" id="courseRating">
+                        Course rating is required.</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="pb-2" htmlFor="slopeRating" for="slopeRating">Slope Rating</label>
+                <p-inputNumber class="p-inputnumber" id="slopeRating" aria-describedby="slopeRating"
+                    formControlName="slopeRating"
+                    [ngClass]="{'border-danger': validateRequiredFields('slopeRating')}" />
+                <div *ngIf="createGolfCourseForm.get('slopeRating')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('slopeRating')" id="slopeRating">
+                        Slope rating is required.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template pTemplate="footer">
+        <p-button label="Save" icon="pi pi-check"
+            [disabled]="createGolfCourseForm.invalid || createGolfCourseForm.pristine" (onClick)="save()"></p-button>
+        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"
+            (onClick)="back()"></p-button>
+        <p-button label="Clear Form" [text]="true" styleClass="p-button-clear-form" (onClick)="clearForm()"></p-button>
+    </ng-template>
+</p-card>

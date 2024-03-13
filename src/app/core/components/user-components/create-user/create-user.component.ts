@@ -10,9 +10,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 import { GolfCourseService } from 'src/app/core/services/golf-course/golf-course.service';
 import { Subscription } from 'rxjs';
 import { AddUser } from 'src/app/core/models/user/add-user.request';
-import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/app/core/models/user/user.model';
-import { UpdateUser } from 'src/app/core/models/user/update-user.request';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -31,7 +29,7 @@ import { UpdateUser } from 'src/app/core/models/user/update-user.request';
 })
 export class CreateUserComponent implements OnInit, AfterViewChecked, OnDestroy {
 
-  userMaintenanceForm!: FormGroup;
+  createUserForm!: FormGroup;
 
   golfCourses: GolfCourse[] = [];
 
@@ -41,13 +39,12 @@ export class CreateUserComponent implements OnInit, AfterViewChecked, OnDestroy 
     private golfCourseService: GolfCourseService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
     private cdrf: ChangeDetectorRef,
     private ngZone: NgZone,
   ) { }
 
   ngOnInit() {
-    this.userMaintenanceForm = this.createUserMaintenanceForm();
+    this.createUserForm = this.createUserMaintenanceForm();
     this.getGolfCourses();
   }
 
@@ -82,11 +79,11 @@ export class CreateUserComponent implements OnInit, AfterViewChecked, OnDestroy 
 
   createUser() {
     const createUserRequest: AddUser = {
-      username: this.userMaintenanceForm.get('username')?.value,
-      name: this.userMaintenanceForm.get('name')?.value,
-      email: this.userMaintenanceForm.get('email')?.value,
-      password: this.userMaintenanceForm.get('password')?.value,
-      golfCourseId: this.userMaintenanceForm.get('golfCourseId')?.value,
+      username: this.createUserForm.get('username')?.value,
+      name: this.createUserForm.get('name')?.value,
+      email: this.createUserForm.get('email')?.value,
+      password: this.createUserForm.get('password')?.value,
+      golfCourseId: this.createUserForm.get('golfCourseId')?.value,
     };
     this.subscriptions = this.userService.addUser(createUserRequest).subscribe({
       next: data => {
@@ -100,7 +97,7 @@ export class CreateUserComponent implements OnInit, AfterViewChecked, OnDestroy 
   }
 
   validateRequiredFields(formControlName: any) {
-    if (this.userMaintenanceForm.controls[formControlName].invalid && (this.userMaintenanceForm.controls[formControlName].dirty || this.userMaintenanceForm.controls[formControlName].touched)) {
+    if (this.createUserForm.controls[formControlName].invalid && (this.createUserForm.controls[formControlName].dirty || this.createUserForm.controls[formControlName].touched)) {
       return true;
     }
     return false;
@@ -111,7 +108,7 @@ export class CreateUserComponent implements OnInit, AfterViewChecked, OnDestroy 
   }
 
   clearForm() {
-    this.userMaintenanceForm.reset();
+    this.createUserForm.reset();
   }
 
   back() {

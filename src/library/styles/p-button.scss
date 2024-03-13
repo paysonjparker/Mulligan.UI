@@ -95,4 +95,18 @@
         border: 0px;
         border-radius: 2rem;
     }
+
+    .p-button.p-button-delete-icon {
+        background-color: transparent;
+        color: red;
+        border: 0px;
+        border-radius: 2rem;
+    }
+
+    .p-button.p-button-delete-icon:hover {
+        background-color: rgba(255, 0, 0, 0.131);
+        color: red;
+        border: 0px;
+        border-radius: 2rem;
+    }
 }
