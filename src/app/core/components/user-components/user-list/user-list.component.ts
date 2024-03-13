@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -47,6 +47,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService,
     private cdrf: ChangeDetectorRef,
     private router: Router,
+    private ngZone: NgZone,
   ) { }
 
   ngOnInit() {
@@ -59,14 +60,16 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
 
   getAllUsers() {
-    this.subscriptions = this.userService.getAllUsers().subscribe({
-      next: (data) => {
-        this.users = data;
-        this.cdrf.markForCheck();
-      },
-      error: (error) => {
-        console.error(error);
-      }
+    this.ngZone.run(() => {
+      this.subscriptions = this.userService.getAllUsers().subscribe({
+        next: (data) => {
+          this.users = data;
+          this.cdrf.markForCheck();
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      });
     });
   }
 
@@ -82,7 +85,4 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.columnsToDisplay = this.cols.filter(col => !col.hide);
   }
 
-  onEditClick(userId: string) {
-    this.router.navigate(['/users/edit', userId]);
-  }
 }

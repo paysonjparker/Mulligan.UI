@@ -1,0 +1,59 @@
+@import './variables.scss';
+
+::ng-deep {
+    .p-paginator {
+        background: $mulligan-bg-gray-100;
+        color: $mulligan-green-main;
+    }
+
+    .p-paginator,
+    .p-paginator .p-paginator-current,
+    .p-paginator .p-paginator-prev,
+    .p-paginator .p-paginator-next,
+    .p-paginator .p-paginator-last,
+    .p-paginator .p-paginator-first,
+    .p-paginator .p-paginator-pages .p-paginator-page,
+    button.p-ripple .p-element .p-paginator-prev .p-paginator-element .p-link .p-disabled,
+    p-dropdown div.p-paginator-rpp-options.p-dropdown.p-component {
+        background-color: $mulligan-bg-gray-100;
+        color: $mulligan-green-main;
+    }
+
+    .p-paginator .p-paginator-prev:hover,
+    .p-paginator .p-paginator-next:hover,
+    .p-paginator .p-paginator-last:hover,
+    .p-paginator .p-paginator-first:hover {
+        background-color: $mulligan-green-tertiary;
+        border-radius: 2rem;
+        color: $mulligan-green-main;
+    }
+
+    .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+        background: $mulligan-green-main;
+        border-color: $mulligan-green-main;
+        border-radius: 2rem;
+        color: $mulligan-yellow;
+    }
+
+    .p-paginator .p-paginator-pages .p-paginator-page.p-highlight:hover {
+        background: $mulligan-green-main;
+        border-color: $mulligan-green-main;
+        border-radius: 2rem;
+        color: $mulligan-yellow;
+    }
+
+    .p-paginator .p-paginator-pages .p-paginator-page:hover {
+        background: $mulligan-green-tertiary;
+        border-color: $mulligan-green-main;
+        border-radius: 2rem;
+        color: $mulligan-green-main;
+    }
+
+    .p-paginator .p-dropdown .p-dropdown-label {
+        background: transparent;
+        border: 0 none;
+        color: $mulligan-green-main;
+        display: flex;
+        align-items: center;
+    }
+}
