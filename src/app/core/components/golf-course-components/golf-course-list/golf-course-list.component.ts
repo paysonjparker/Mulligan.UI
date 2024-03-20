@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmationService, Message, MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-golf-course-list',
@@ -22,9 +25,12 @@ import { ButtonModule } from 'primeng/button';
     CardModule,
     ButtonModule,
     RouterLink,
+    ConfirmDialogModule,
+    ToastModule
   ],
   templateUrl: './golf-course-list.component.html',
-  styleUrls: ['./golf-course-list.component.scss']
+  styleUrls: ['./golf-course-list.component.scss'],
+  providers: [ConfirmationService, MessageService]
 })
 export class GolfCourseListComponent implements OnInit, OnDestroy {
 
@@ -49,6 +55,8 @@ export class GolfCourseListComponent implements OnInit, OnDestroy {
     private cdrf: ChangeDetectorRef,
     private router: Router,
     private ngZone: NgZone,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
   ) { }
 
   ngOnInit() {
@@ -85,6 +93,34 @@ export class GolfCourseListComponent implements OnInit, OnDestroy {
     ];
 
     this.columnsToDisplay = this.cols.filter(col => !col.hide);
+  }
+
+  confirmDeleteDialog(golfCourseId: string, golfCourseName: string) {
+
+    this.confirmationService.confirm({
+      message: `Are you sure that you want to delete ${golfCourseName}?`,
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteGolfCourse(golfCourseId);
+        this.golfCourses = this.golfCourses.filter(golfCourse => golfCourse.id != golfCourseId);
+        this.messageService.add({ key: 'br', severity: 'success', summary: 'Success', detail: `${golfCourseName} was deleted successfully.` });
+      },
+      reject: () => {
+
+      }
+    });
+  }
+
+  deleteGolfCourse(golfCourseId: string) {
+    this.subscriptions = this.golfCourseService.deleteGolfCourse(golfCourseId).subscribe({
+      next: () => {
+        console.info("Deleted golf course ID: ", golfCourseId);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 
 }

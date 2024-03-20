@@ -1,3 +1,5 @@
+<p-toast position="bottom-right" key="br"></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
 <p-card header="Golf Courses">
     <p-table [value]="golfCourses" selectionMode="single" [columns]="selectedColumns" [paginator]="true" [rows]="10"
         [showCurrentPageReport]="true" styleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }"
@@ -23,9 +25,9 @@
                 <td *ngFor="let col of columns" routerLink="/golfCourses/{{golfCourse.id}}">
                     {{golfCourse[col.field]}}
                 </td>
-                <td routerLink="/golfCourses/{{golfCourse.id}}">
-                    <p-button styleClass="p-button-delete-icon" icon="pi pi-trash" [rounded]="true"
-                        [text]="true"></p-button>
+                <td>
+                    <p-button styleClass="p-button-delete-icon" icon="pi pi-trash" [rounded]="true" [text]="true"
+                        (click)="confirmDeleteDialog(golfCourse.id, golfCourse.name)"></p-button>
                 </td>
             </tr>
         </ng-template>
