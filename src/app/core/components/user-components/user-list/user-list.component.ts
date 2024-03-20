@@ -10,6 +10,10 @@ import { CardModule } from 'primeng/card';
 import { Subscription } from 'rxjs';
 import { ButtonModule } from 'primeng/button';
 import { Router, RouterLink } from '@angular/router';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
 
 @Component({
   selector: 'app-user-list',
@@ -21,10 +25,13 @@ import { Router, RouterLink } from '@angular/router';
     MultiSelectModule,
     CardModule,
     ButtonModule,
-    RouterLink
+    RouterLink,
+    ToastModule,
+    ConfirmDialogModule,
   ],
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  styleUrls: ['./user-list.component.scss'],
+  providers: [ConfirmationService, MessageService]
 })
 export class UserListComponent implements OnInit, OnDestroy {
 
@@ -48,6 +55,8 @@ export class UserListComponent implements OnInit, OnDestroy {
     private cdrf: ChangeDetectorRef,
     private router: Router,
     private ngZone: NgZone,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
   ) { }
 
   ngOnInit() {
@@ -85,4 +94,30 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.columnsToDisplay = this.cols.filter(col => !col.hide);
   }
 
+  confirmDeleteDialog(userId: string, userName: string) {
+    this.confirmationService.confirm({
+      message: `Are you sure that you want to delete ${userName}?`,
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteUser(userId);
+        this.users = this.users.filter(user => user.id != userId);
+        this.messageService.add({ key: 'br', severity: 'success', summary: 'Success', detail: `${userName} was deleted successfully.` });
+      },
+      reject: () => {
+
+      }
+    });
+  }
+
+  deleteUser(userId: string) {
+    this.subscriptions = this.userService.deleteUser(userId).subscribe({
+      next: () => {
+        console.info("Deleted user ID: ", userId);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
 }

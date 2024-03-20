@@ -96,7 +96,6 @@ export class GolfCourseListComponent implements OnInit, OnDestroy {
   }
 
   confirmDeleteDialog(golfCourseId: string, golfCourseName: string) {
-
     this.confirmationService.confirm({
       message: `Are you sure that you want to delete ${golfCourseName}?`,
       header: 'Confirmation',

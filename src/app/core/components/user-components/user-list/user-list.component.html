@@ -1,6 +1,8 @@
+<p-toast position="bottom-right" key="br"></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
 <p-card header="Users">
-    <p-table [value]="users" [columns]="selectedColumns" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-        styleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }"
+    <p-table [value]="users" selectionMode="single" [columns]="selectedColumns" [paginator]="true" [rows]="10"
+        [showCurrentPageReport]="true" styleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} Users"
         [rowsPerPageOptions]="[10, 20, 50]" [resizableColumns]="true">
         <ng-template pTemplate="caption">
@@ -19,13 +21,13 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-user let-columns="columns">
-            <tr>
-                <td *ngFor="let col of columns">
+            <tr [pSelectableRow]="user">
+                <td *ngFor="let col of columns" routerLink="/users/{{user.id}}">
                     {{user[col.field]}}
                 </td>
-                <td routerLink="/users/{{user.id}}">
-                    <p-button styleClass="p-button-delete-icon" icon="pi pi-trash" [rounded]="true"
-                        [text]="true"></p-button>
+                <td>
+                    <p-button styleClass="p-button-delete-icon" icon="pi pi-trash" [rounded]="true" [text]="true"
+                        (click)="confirmDeleteDialog(user.id, user.name)"></p-button>
                 </td>
             </tr>
         </ng-template>
