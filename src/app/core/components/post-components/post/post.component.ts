@@ -5,13 +5,17 @@ import { CardModule } from 'primeng/card';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/core/models/user/user.model';
+import { ButtonModule } from 'primeng/button';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-post',
   standalone: true,
   imports: [
     CommonModule,
-    CardModule
+    CardModule,
+    ButtonModule,
+    TooltipModule,
   ],
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']

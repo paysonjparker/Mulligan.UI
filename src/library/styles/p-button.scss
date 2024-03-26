@@ -121,4 +121,34 @@
         margin-right: 1rem;
     }
 
+    .p-button.post-delete {
+        background-color: transparent;
+        color: red;
+        border: 0px;
+        border-radius: 2rem;
+        margin-left: 0.5rem;
+    }
+
+    .p-button.post-delete:hover {
+        background-color: rgba(255, 0, 0, 0.131);
+        color: red;
+        border: 0px;
+        border-radius: 2rem;
+    }
+
+    .p-button.post-edit {
+        background-color: transparent;
+        color: $mulligan-green-main;
+        border: 0px;
+        border-radius: 2rem;
+        margin-left: 0.5rem;
+    }
+
+    .p-button.post-edit:hover {
+        background-color: $mulligan-green-tertiary;
+        color: $mulligan-green-main;
+        border: 0px;
+        border-radius: 2rem;
+    }
+
 }

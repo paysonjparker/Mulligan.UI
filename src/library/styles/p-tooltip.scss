@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+::ng-deep {
+
+    .p-tooltip .p-tooltip-text {
+        background-color: $mulligan-green-accent;
+        color: $mulligan-green-main;
+    }
+
+    .p-tooltip .p-tooltip-arrow {
+        color: $mulligan-green-accent;
+    }
+}
