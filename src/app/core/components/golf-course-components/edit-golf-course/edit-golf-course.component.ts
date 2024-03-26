@@ -62,6 +62,7 @@ export class EditGolfCourseComponent {
     this.subscriptions = this.golfCourseService.getGolfCourseById(this.activatedRoute.snapshot.paramMap.get("Id")!).subscribe({
       next: (data) => {
         this.golfCourse = data;
+        // Add values to the form
         this.editGolfCourseForm = this.formBuilder.group({
           name: new FormControl<string>(this.golfCourse.name, { validators: [Validators.required] }),
           location: new FormControl<string>(this.golfCourse.location, { validators: [Validators.required] }),
