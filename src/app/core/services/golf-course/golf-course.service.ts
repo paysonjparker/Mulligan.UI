@@ -21,7 +21,7 @@ export class GolfCourseService {
     return this.http.get<GolfCourse[]>(url);
   }
 
-  public getGolfCourseById(id: string) {
+  public getGolfCourseById(id: string): Observable<GolfCourse> {
     return this.http.get<GolfCourse>(this.mulliganApiUrl + "/GolfCourses/" + id);
   };
 

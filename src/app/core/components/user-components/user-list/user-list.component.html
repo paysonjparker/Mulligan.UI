@@ -3,7 +3,7 @@
 <p-card header="Users">
     <p-table [value]="users" selectionMode="single" [columns]="selectedColumns" [paginator]="true" [rows]="10"
         [showCurrentPageReport]="true" styleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} Users"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} users"
         [rowsPerPageOptions]="[10, 20, 50]" [resizableColumns]="true">
         <ng-template pTemplate="caption">
             <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
