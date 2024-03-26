@@ -46,7 +46,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   getAllPosts() {
     this.subscriptions = this.postService.getAllPosts().subscribe({
       next: (data) => {
-        this.posts = data;
+        this.posts = data.reverse();
       },
       error: (error) => {
         console.error(error);
@@ -57,7 +57,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   getPostsByUserId() {
     this.subscriptions = this.postService.getPostsByUserId(this.userId).subscribe({
       next: (data) => {
-        this.posts = data;
+        this.posts = data.reverse();
       },
       error: (error) => {
         console.error(error);

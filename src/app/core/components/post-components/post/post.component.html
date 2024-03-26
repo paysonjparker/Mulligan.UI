@@ -1,3 +1,6 @@
-<p-card [header]="post.userId">
+<p-card styleClass="post-card" [header]="author.name" [subheader]="'@'+ author.username">
     {{post.content}}
+    <ng-template *ngIf="isUserPage" pTemplate="footer">
+        Is user Page
+    </ng-template>
 </p-card>

@@ -14,4 +14,30 @@
     .p-card .p-card-content {
         padding: 0rem;
     }
+
+    .p-card.post-card {
+        background-color: $mulligan-gray-100;
+        margin: 0.5rem;
+    }
+
+    .p-card.post-card:hover {
+        background-color: $mulligan-green-tertiary;
+        margin: 0.5rem;
+    }
+
+    .p-card.post-card .p-card-title {
+        font-size: 16px;
+        color: $mulligan-green-main;
+        margin-bottom: 0;
+    }
+
+    .p-card.post-card .p-card-subtitle {
+        font-size: 14px;
+        color: $mulligan-green-highlight;
+        margin-bottom: 1rem;
+    }
+
+    .p-card.post-card .p-card-content {
+        font-size: 16px;
+    }
 }

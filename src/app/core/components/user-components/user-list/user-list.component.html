@@ -2,7 +2,7 @@
 <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
 <p-card header="Users">
     <p-table [value]="users" selectionMode="single" [columns]="selectedColumns" [paginator]="true" [rows]="10"
-        [showCurrentPageReport]="true" styleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }"
+        [showCurrentPageReport]="true" styleClass="p-datatable-striped view-all" [tableStyle]="{ 'min-width': '50rem' }"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} users"
         [rowsPerPageOptions]="[10, 20, 50]" [resizableColumns]="true">
         <ng-template pTemplate="caption">

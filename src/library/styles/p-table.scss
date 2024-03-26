@@ -14,7 +14,7 @@
         background-color: $mulligan-green-tertiary;
     }
 
-    .p-datatable.p-datatable-striped .p-datatable-tbody>tr:nth-child(even):hover {
+    .p-datatable.p-datatable-striped.view-all .p-datatable-tbody>tr:nth-child(even):hover {
         border-top: 1px solid $mulligan-green-main;
         border-bottom: 1px solid $mulligan-green-main;
         background-color: $mulligan-green-accent;

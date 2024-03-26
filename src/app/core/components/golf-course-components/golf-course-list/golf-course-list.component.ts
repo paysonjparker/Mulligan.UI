@@ -4,7 +4,7 @@ import { GolfCourse } from 'src/app/core/models/golf-course/golf-course.model';
 import { Column } from 'src/app/core/models/column/column.model';
 import { Subscription } from 'rxjs';
 import { GolfCourseService } from 'src/app/core/services/golf-course/golf-course.service';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { MultiSelectModule } from 'primeng/multiselect';
