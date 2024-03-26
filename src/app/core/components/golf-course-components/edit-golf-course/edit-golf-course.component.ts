@@ -46,8 +46,8 @@ export class EditGolfCourseComponent {
   ) { }
 
   ngOnInit() {
-    this.getGolfCourseData();
     this.editGolfCourseForm = this.createGolfCourseMaintenanceForm();
+    this.getGolfCourseData();
   }
 
   ngAfterViewChecked() {
@@ -62,6 +62,14 @@ export class EditGolfCourseComponent {
     this.subscriptions = this.golfCourseService.getGolfCourseById(this.activatedRoute.snapshot.paramMap.get("Id")!).subscribe({
       next: (data) => {
         this.golfCourse = data;
+        this.editGolfCourseForm = this.formBuilder.group({
+          name: new FormControl<string>(this.golfCourse.name, { validators: [Validators.required] }),
+          location: new FormControl<string>(this.golfCourse.location, { validators: [Validators.required] }),
+          slopeRating: new FormControl<number | null>(this.golfCourse.slopeRating, { validators: [Validators.required] }),
+          courseRating: new FormControl<number | null>(this.golfCourse.courseRating, { validators: [Validators.required] }),
+          yardage: new FormControl<number | null>(this.golfCourse.yardage, { validators: [Validators.required] }),
+          par: new FormControl<number | null>(this.golfCourse.par, { validators: [Validators.required] }),
+        });
       },
       error: (error) => {
         console.error(error);
