@@ -38,15 +38,7 @@ import { Column } from 'src/app/core/models/column/column.model';
 })
 export class GolfCourseDetailsComponent implements OnInit, OnDestroy {
 
-  golfCourse: GolfCourse = {
-    id: '',
-    location: '',
-    name: '',
-    slopeRating: 0,
-    courseRating: 0,
-    yardage: 0,
-    par: 0
-  };
+  golfCourse!: GolfCourse;
 
   members: User[] = [];
 
