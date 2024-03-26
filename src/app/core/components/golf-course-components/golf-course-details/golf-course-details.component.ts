@@ -15,6 +15,7 @@ import { User } from 'src/app/core/models/user/user.model';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { Column } from 'src/app/core/models/column/column.model';
+import { AccordionModule } from 'primeng/accordion';
 
 @Component({
   selector: 'app-golf-course-details',
@@ -30,7 +31,8 @@ import { Column } from 'src/app/core/models/column/column.model';
     ButtonModule,
     TableModule,
     MultiSelectModule,
-    RouterLink
+    RouterLink,
+    AccordionModule,
   ],
   templateUrl: './golf-course-details.component.html',
   styleUrls: ['./golf-course-details.component.scss']
