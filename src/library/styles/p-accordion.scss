@@ -1,0 +1,21 @@
+@import './variables.scss';
+
+::ng-deep {
+
+    .p-accordion .p-accordion-header-text {
+        color: $mulligan-green-main;
+    }
+
+    .p-accordion .p-accordion-header-link {
+        text-decoration: none;
+    }
+
+    .p-accordion .p-icon {
+        color: $mulligan-green-main;
+    }
+
+    .p-accordion .p-accordion-header-link:hover {
+        background: $mulligan-green-tertiary;
+    }
+
+}

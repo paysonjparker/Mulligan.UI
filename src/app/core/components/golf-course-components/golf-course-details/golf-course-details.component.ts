@@ -11,7 +11,6 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { ScoreService } from 'src/app/core/services/score/score.service';
 import { User } from 'src/app/core/models/user/user.model';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { MultiSelectModule } from 'primeng/multiselect';

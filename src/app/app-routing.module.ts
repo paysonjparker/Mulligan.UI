@@ -13,12 +13,13 @@ import { UpdateUserComponent } from './core/components/user-components/update-us
 import { UserDetailsComponent } from './core/components/user-components/user-details/user-details.component';
 import { EditGolfCourseComponent } from './core/components/golf-course-components/edit-golf-course/edit-golf-course.component';
 import { GolfCourseDetailsComponent } from './core/components/golf-course-components/golf-course-details/golf-course-details.component';
+import { HomeComponent } from './core/components/home/home/home.component';
 
 const routes: Routes = [
   {
     title: 'Home',
     path: '',
-    component: PostListComponent
+    component: HomeComponent
   },
   {
     title: 'Add Post',

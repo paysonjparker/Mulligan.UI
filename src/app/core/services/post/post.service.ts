@@ -14,25 +14,19 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllPosts(callback: (posts: Post[]) => void): void {
-    this.http.get<Post[]>(this.mulliganApiUrl + "/Posts").
-      subscribe((posts: Post[]) => {
-        callback(posts);
-      });
-  }
+  public getAllPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.mulliganApiUrl + "/Posts");
+  };
 
-  public getPostsByUserId(id : string, callback: (posts: Post[]) => void): void {
-    this.http.get<Post[]>(this.mulliganApiUrl + "/Posts/" + id).
-      subscribe((posts: Post[]) => {
-        callback(posts);
-      });
-  }
+  public getPostsByUserId(id: string): Observable<Post[]> {
+    return this.http.get<Post[]>(this.mulliganApiUrl + "/Posts/" + id);
+  };
 
   public deletePost(id: string): Observable<void> {
     return this.http.delete<void>(this.mulliganApiUrl + "/Posts/" + id);
   }
 
-  public addPost(post: AddPost, callback:() => void): void {
+  public addPost(post: AddPost, callback: () => void): void {
     this.http.post<Post>(this.mulliganApiUrl + "/Posts", post).
       subscribe((data) => {
         callback();

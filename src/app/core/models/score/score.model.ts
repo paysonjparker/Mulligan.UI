@@ -4,4 +4,5 @@ export interface Score {
     differential: number,
     userId: string,
     golfCourseId: string,
+    golfCourseName: string,
 }

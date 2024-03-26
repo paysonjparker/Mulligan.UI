@@ -21,18 +21,15 @@ export class ScoreService {
       });
   }
 
-  public getScoresByUserId(id : string, callback: (scores: Score[]) => void): void {
-    this.http.get<Score[]>(this.mulliganApiUrl + "/Scores/" + id).
-      subscribe((scores: Score[]) => {
-        callback(scores);
-      });
-  }
+  public getScoresByUserId(id: string): Observable<Score[]> {
+    return this.http.get<Score[]>(this.mulliganApiUrl + "/Scores/" + id);
+  };
 
   public deleteScore(id: string): Observable<void> {
     return this.http.delete<void>(this.mulliganApiUrl + "/Scores/" + id);
   }
 
-  public addScore(score: AddScore, callback:() => void): void {
+  public addScore(score: AddScore, callback: () => void): void {
     this.http.post<Score>(this.mulliganApiUrl + "/Scores", score).
       subscribe((data) => {
         callback();
