@@ -53,7 +53,6 @@ export class GolfCourseListComponent implements OnInit, OnDestroy {
   constructor(
     private golfCourseService: GolfCourseService,
     private cdrf: ChangeDetectorRef,
-    private router: Router,
     private ngZone: NgZone,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,

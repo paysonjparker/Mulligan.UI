@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GolfCourse } from 'src/app/core/models/golf-course/golf-course.model';
 import { GolfCourseService } from 'src/app/core/services/golf-course/golf-course.service';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
@@ -56,9 +56,7 @@ export class GolfCourseDetailsComponent implements OnInit, OnDestroy {
     this.columnsToDisplay = this.cols.filter(col => val.includes(col));
   }
 
-  constructor(private golfCourseService: GolfCourseService, private userService: UserService, private activatedRoute: ActivatedRoute) {
-
-  }
+  constructor(private golfCourseService: GolfCourseService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getGolfCourseData();
@@ -103,6 +101,10 @@ export class GolfCourseDetailsComponent implements OnInit, OnDestroy {
     ];
 
     this.columnsToDisplay = this.cols.filter(col => !col.hide);
+  }
+
+  onEditClick() {
+    this.router.navigate(['golfCourses/edit/', this.golfCourse.id]);
   }
 
 }
