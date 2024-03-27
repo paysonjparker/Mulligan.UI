@@ -48,37 +48,34 @@
     </ng-template>
 </p-card>
 <br>
-<p-card>
-    <p-accordion [multiple]="true">
-        <p-accordionTab header="Scores">
-            <p-card>
-                <p-table [value]="scores" [columns]="selectedColumns" [paginator]="true" [rows]="10"
-                    [showCurrentPageReport]="true" styleClass="p-datatable-striped"
-                    [tableStyle]="{ 'min-width': '50rem' }"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} scores"
-                    [rowsPerPageOptions]="[10, 20, 50]" [resizableColumns]="true">
-                    <ng-template pTemplate="header" let-columns>
-                        <tr>
-                            <th *ngFor="let col of columns" pResizableColumn pSortableColumn="{{col.field}}"
-                                style="width:25%">
-                                <ng-container>
-                                    {{col.header}}
-                                </ng-container>
-                                <p-sortIcon field="{{col.field}}"></p-sortIcon>
-                            </th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-score let-columns="columns">
-                        <tr [pSelectableRow]="score">
-                            <td *ngFor="let col of columns">
-                                {{score[col.field]}}
-                            </td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </p-card>
+<p-card *ngIf="scores.length > 0 || user.posts.length > 0">
+    <p-accordion [multiple]=" true">
+        <p-accordionTab *ngIf="scores.length > 0" header="Scores ({{scores.length}})">
+            <p-table [value]="scores" [columns]="selectedColumns" [paginator]="true" [rows]="10"
+                [showCurrentPageReport]="true" styleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} scores"
+                [rowsPerPageOptions]="[10, 20, 50]" [resizableColumns]="true">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" pResizableColumn pSortableColumn="{{col.field}}"
+                            style="width:25%">
+                            <ng-container>
+                                {{col.header}}
+                            </ng-container>
+                            <p-sortIcon field="{{col.field}}"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-score let-columns="columns">
+                    <tr [pSelectableRow]="score">
+                        <td *ngFor="let col of columns">
+                            {{score[col.field]}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
         </p-accordionTab>
-        <p-accordionTab header="Posts">
+        <p-accordionTab *ngIf="user.posts.length > 0" header="Posts ({{user.posts.length}})">
             <app-post-list [displayAllPosts]="false" [userId]="user.id"></app-post-list>
         </p-accordionTab>
     </p-accordion>

@@ -6,7 +6,6 @@ import { GolfCourseListComponent } from './core/components/golf-course-component
 import { UserListComponent } from './core/components/user-components/user-list/user-list.component';
 import { CreateGolfCourseComponent } from './core/components/golf-course-components/create-golf-course/create-golf-course.component';
 import { CreateUserComponent } from './core/components/user-components/create-user/create-user.component';
-import { PostMaintenanceComponent } from './core/components/post-components/post-maintenance/post-maintenance.component';
 import { ScoreMaintenanceComponent } from './core/components/score-components/score-maintenance/score-maintenance.component';
 import { ScoreListComponent } from './core/components/score-components/score-list/score-list.component';
 import { UpdateUserComponent } from './core/components/user-components/update-user/update-user.component';
@@ -14,6 +13,8 @@ import { UserDetailsComponent } from './core/components/user-components/user-det
 import { EditGolfCourseComponent } from './core/components/golf-course-components/edit-golf-course/edit-golf-course.component';
 import { GolfCourseDetailsComponent } from './core/components/golf-course-components/golf-course-details/golf-course-details.component';
 import { HomeComponent } from './core/components/home/home/home.component';
+import { CreatePostComponent } from './core/components/post-components/create-post/create-post.component';
+import { EditPostComponent } from './core/components/post-components/edit-post/edit-post.component';
 
 const routes: Routes = [
   {
@@ -24,12 +25,12 @@ const routes: Routes = [
   {
     title: 'Add Post',
     path: 'posts/create',
-    component: PostMaintenanceComponent
+    component: CreatePostComponent
   },
   {
     title: 'Edit Post',
     path: 'posts/edit/:Id',
-    component: PostMaintenanceComponent
+    component: EditPostComponent
   },
   {
     title: 'Golf Courses',

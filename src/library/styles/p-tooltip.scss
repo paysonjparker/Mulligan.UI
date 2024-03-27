@@ -2,12 +2,7 @@
 
 ::ng-deep {
 
-    .p-tooltip .p-tooltip-text {
-        background-color: $mulligan-green-accent;
-        color: $mulligan-green-main;
-    }
+    .p-tooltip .p-tooltip-text {}
 
-    .p-tooltip .p-tooltip-arrow {
-        color: $mulligan-green-accent;
-    }
+    .p-tooltip-arrow {}
 }
