@@ -3,7 +3,6 @@
 <p-card styleClass="post-card" [header]="author.name" [subheader]="'@'+ author.username">
     {{post.content}}
     <ng-template *ngIf="isUserPage" pTemplate="footer">
-        <p-button styleClass="post-edit" icon="pi pi-pencil" (click)="onEditClick(post.id)"></p-button>
         <p-button styleClass="post-delete" icon="pi pi-trash" (click)="onDeleteClick(post.id)"></p-button>
     </ng-template>
 </p-card>

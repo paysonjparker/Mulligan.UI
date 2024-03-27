@@ -44,7 +44,9 @@
         </div>
     </div>
     <ng-template pTemplate="footer">
-        <p-button label="Edit" icon="pi pi-pencil" (onClick)="onEditClick()"></p-button>
+        <p-button label="Edit" styleClass="p-button-secondary" icon="pi pi-pencil" (onClick)="onEditClick()"></p-button>
+        <p-button label="Post" icon="pi pi-file-edit" (onClick)="onPostClick(user.id)"
+            [style]="{ 'margin-left': '.5em' }"></p-button>
     </ng-template>
 </p-card>
 <br>

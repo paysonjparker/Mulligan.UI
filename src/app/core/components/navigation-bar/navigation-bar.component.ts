@@ -13,7 +13,7 @@ import { MenubarModule } from 'primeng/menubar';
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss']
 })
-export class NavigationBarComponent implements OnInit{
+export class NavigationBarComponent implements OnInit {
 
   menuItems: MenuItem[] | undefined;
 
@@ -72,11 +72,11 @@ export class NavigationBarComponent implements OnInit{
           },
         ]
       },
-      {
-        label: 'Add Post',
-        icon: 'pi pi-pencil',
-        routerLink: 'posts/create',
-      },
+      // {
+      //   label: 'Add Post',
+      //   icon: 'pi pi-pencil',
+      //   routerLink: 'posts/create',
+      // },
     ]
   }
 }

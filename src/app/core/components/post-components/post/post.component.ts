@@ -63,10 +63,6 @@ export class PostComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  onEditClick(postId: string) {
-    this.router.navigate(['posts/edit/', postId]);
-  }
-
   onDeleteClick(postId: string) {
     this.confirmationService.confirm({
       message: `Are you sure that you want to delete this post?`,

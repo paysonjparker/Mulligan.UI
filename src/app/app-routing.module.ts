@@ -14,7 +14,6 @@ import { EditGolfCourseComponent } from './core/components/golf-course-component
 import { GolfCourseDetailsComponent } from './core/components/golf-course-components/golf-course-details/golf-course-details.component';
 import { HomeComponent } from './core/components/home/home/home.component';
 import { CreatePostComponent } from './core/components/post-components/create-post/create-post.component';
-import { EditPostComponent } from './core/components/post-components/edit-post/edit-post.component';
 
 const routes: Routes = [
   {
@@ -24,13 +23,8 @@ const routes: Routes = [
   },
   {
     title: 'Add Post',
-    path: 'posts/create',
+    path: 'posts/create/:Id',
     component: CreatePostComponent
-  },
-  {
-    title: 'Edit Post',
-    path: 'posts/edit/:Id',
-    component: EditPostComponent
   },
   {
     title: 'Golf Courses',

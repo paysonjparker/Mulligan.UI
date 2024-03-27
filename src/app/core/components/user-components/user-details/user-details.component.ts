@@ -122,4 +122,8 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     this.router.navigate(['users/edit/', this.user.id]);
   }
 
+  onPostClick(userId: string) {
+    this.router.navigate(['posts/create', userId]);
+  }
+
 }
