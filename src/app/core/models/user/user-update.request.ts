@@ -1,4 +1,4 @@
-export interface UpdateUser {
+export interface UserUpdateRequest {
     password: string,
     name: string,
     email: string,

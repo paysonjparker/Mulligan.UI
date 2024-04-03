@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ennvironments } from '../../environments/environments';
-import { AddPost } from '../../models/post/add-post.request';
+import { environments } from '../../environments/environments';
+import { PostCreationRequest } from '../../models/post/post-creation.request';
 import { Post } from '../../models/post/post.model';
 
 @Injectable({
@@ -10,26 +10,23 @@ import { Post } from '../../models/post/post.model';
 })
 export class PostService {
 
-  readonly mulliganApiUrl = ennvironments.mulliganLocalApi;
+  readonly mulliganApiUrl = environments.mulliganLocalApi;
 
   constructor(private http: HttpClient) { }
 
   public getAllPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.mulliganApiUrl + "/Posts");
+    return this.http.get<Post[]>(this.mulliganApiUrl + "/Post");
   };
 
-  public getPostsByUserId(id: string): Observable<Post[]> {
-    return this.http.get<Post[]>(this.mulliganApiUrl + "/Posts/" + id);
+  public getPostsByUserId(userId: string): Observable<Post[]> {
+    return this.http.get<Post[]>(this.mulliganApiUrl + "/Post/" + userId);
   };
 
-  public deletePost(id: string): Observable<void> {
-    return this.http.delete<void>(this.mulliganApiUrl + "/Posts/" + id);
+  public deletePost(postId: string): Observable<void> {
+    return this.http.delete<void>(this.mulliganApiUrl + "/Post/" + postId);
   }
 
-  public addPost(post: AddPost, callback: () => void): void {
-    this.http.post<Post>(this.mulliganApiUrl + "/Posts", post).
-      subscribe((data) => {
-        callback();
-      });
+  public createPost(postCreationRequest: PostCreationRequest): Observable<Post> {
+    return this.http.post<Post>(this.mulliganApiUrl + "/Post", postCreationRequest);
   }
 }

@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GolfCourseService } from 'src/app/core/services/golf-course/golf-course.service';
 import { GolfCourse } from 'src/app/core/models/golf-course/golf-course.model';
-import { UpdateGolfCourse } from 'src/app/core/models/golf-course/update-golf-course.request';
+import { GolfCourseUpdateRequest } from 'src/app/core/models/golf-course/golf-course-update.request';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
@@ -90,7 +90,7 @@ export class EditGolfCourseComponent {
   }
 
   updateGolfCourse() {
-    const updateGolfCourseRequest: UpdateGolfCourse = {
+    const updateGolfCourseRequest: GolfCourseUpdateRequest = {
       name: this.editGolfCourseForm.get('name')?.value,
       location: this.editGolfCourseForm.get('location')?.value,
       slopeRating: this.editGolfCourseForm.get('slopeRating')?.value,

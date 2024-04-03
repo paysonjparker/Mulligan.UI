@@ -88,7 +88,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   }
 
   getUserScores() {
-    this.subscriptions = this.scoreService.getScoresByUserId(this.activatedRoute.snapshot.paramMap.get("Id")!).subscribe({
+    this.subscriptions = this.scoreService.getAllScoresByUserId(this.activatedRoute.snapshot.paramMap.get("Id")!).subscribe({
       next: (data) => {
         this.scores = data;
         this.scores.forEach(score => {

@@ -9,7 +9,7 @@ import { GolfCourse } from 'src/app/core/models/golf-course/golf-course.model';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { GolfCourseService } from 'src/app/core/services/golf-course/golf-course.service';
 import { Subscription } from 'rxjs';
-import { AddUser } from 'src/app/core/models/user/add-user.request';
+import { UserCreationRequest } from 'src/app/core/models/user/user-creation.request';
 import { Router } from '@angular/router';
 
 @Component({
@@ -67,7 +67,7 @@ export class CreateUserComponent implements OnInit, AfterViewChecked, OnDestroy 
   }
 
   public getGolfCourses() {
-    this.subscriptions = this.golfCourseService.getGolfCourses().subscribe({
+    this.subscriptions = this.golfCourseService.getAllGolfCourses().subscribe({
       next: (data) => {
         this.golfCourses = data;
       },
@@ -78,14 +78,14 @@ export class CreateUserComponent implements OnInit, AfterViewChecked, OnDestroy 
   }
 
   createUser() {
-    const createUserRequest: AddUser = {
+    const createUserRequest: UserCreationRequest = {
       username: this.createUserForm.get('username')?.value,
       name: this.createUserForm.get('name')?.value,
       email: this.createUserForm.get('email')?.value,
       password: this.createUserForm.get('password')?.value,
       golfCourseId: this.createUserForm.get('golfCourseId')?.value,
     };
-    this.subscriptions = this.userService.addUser(createUserRequest).subscribe({
+    this.subscriptions = this.userService.createUser(createUserRequest).subscribe({
       next: data => {
         console.info(data);
       },

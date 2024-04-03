@@ -8,7 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
-import { AddGolfCourse } from 'src/app/core/models/golf-course/add-golf-course.request';
+import { GolfCourseCreationRequest } from 'src/app/core/models/golf-course/golf-course-create.request';
 import { InputNumberModule } from 'primeng/inputnumber';
 
 @Component({
@@ -65,7 +65,7 @@ export class CreateGolfCourseComponent {
   }
 
   createGolfCourse() {
-    const createGolfCourseRequest: AddGolfCourse = {
+    const createGolfCourseRequest: GolfCourseCreationRequest = {
       name: this.createGolfCourseForm.get('name')?.value,
       location: this.createGolfCourseForm.get('location')?.value,
       slopeRating: this.createGolfCourseForm.get('slopeRating')?.value,
@@ -73,7 +73,7 @@ export class CreateGolfCourseComponent {
       yardage: this.createGolfCourseForm.get('yardage')?.value,
       par: this.createGolfCourseForm.get('par')?.value,
     };
-    this.subscriptions = this.golfCourseService.addGolfCourse(createGolfCourseRequest).subscribe({
+    this.subscriptions = this.golfCourseService.createGolfCourse(createGolfCourseRequest).subscribe({
       next: data => {
         console.info(data);
         this.back()

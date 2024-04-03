@@ -69,7 +69,7 @@ export class GolfCourseListComponent implements OnInit, OnDestroy {
 
   getAllGolfCourses() {
     this.ngZone.run(() => {
-      this.subscriptions = this.golfCourseService.getGolfCourses().subscribe({
+      this.subscriptions = this.golfCourseService.getAllGolfCourses().subscribe({
         next: (data) => {
           this.golfCourses = data;
           this.cdrf.markForCheck();

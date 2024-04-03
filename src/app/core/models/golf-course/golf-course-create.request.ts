@@ -1,4 +1,4 @@
-export interface UpdateGolfCourse {
+export interface GolfCourseCreationRequest {
     name: string,
     location: string,
     slopeRating: number,
