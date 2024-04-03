@@ -5,4 +5,5 @@ export interface Score {
     userId: string,
     golfCourseId: string,
     golfCourseName: string,
+    userName: string,
 }

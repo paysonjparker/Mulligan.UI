@@ -16,6 +16,9 @@ import { UserService } from 'src/app/core/services/user/user.service';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { Column } from 'src/app/core/models/column/column.model';
 import { AccordionModule } from 'primeng/accordion';
+import { Score } from 'src/app/core/models/score/score.model';
+import { ScoreService } from 'src/app/core/services/score/score.service';
+import { ScoreListComponent } from '../../score-components/score-list/score-list.component';
 
 @Component({
   selector: 'app-golf-course-details',
@@ -33,6 +36,7 @@ import { AccordionModule } from 'primeng/accordion';
     MultiSelectModule,
     RouterLink,
     AccordionModule,
+    ScoreListComponent
   ],
   templateUrl: './golf-course-details.component.html',
   styleUrls: ['./golf-course-details.component.scss']
@@ -42,6 +46,8 @@ export class GolfCourseDetailsComponent implements OnInit, OnDestroy {
   golfCourse!: GolfCourse;
 
   members: User[] = [];
+
+  scores: Score[] = [];
 
   cols!: Column[];
 
@@ -57,11 +63,14 @@ export class GolfCourseDetailsComponent implements OnInit, OnDestroy {
     this.columnsToDisplay = this.cols.filter(col => val.includes(col));
   }
 
-  constructor(private golfCourseService: GolfCourseService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private golfCourseService: GolfCourseService,
+    private userService: UserService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private scoreService: ScoreService) { }
 
   ngOnInit() {
     this.getGolfCourseData();
-    this.getGolfCourseMembers();
     this.getColumns();
   }
 
@@ -73,6 +82,8 @@ export class GolfCourseDetailsComponent implements OnInit, OnDestroy {
     this.subscriptions = this.golfCourseService.getGolfCourseById(this.activatedRoute.snapshot.paramMap.get("Id")!).subscribe({
       next: (data) => {
         this.golfCourse = data;
+        this.getGolfCourseMembers(data.id);
+        this.getGolfCourseScores(data.id);
       },
       error: (error) => {
         console.error(error);
@@ -80,17 +91,26 @@ export class GolfCourseDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  getGolfCourseMembers() {
-    this.subscriptions = this.userService.getAllUsers().subscribe({
+  getGolfCourseMembers(golfCourseId: string) {
+    this.subscriptions = this.userService.getAllUsersByGolfCourseId(golfCourseId).subscribe({
       next: (data) => {
-        this.members = data.filter(user => {
-          return user.golfCourseId === this.golfCourse.id
-        });
+        this.members = data;
       },
       error: (error) => {
         console.error(error);
       }
     })
+  }
+
+  getGolfCourseScores(golfCourseId: string) {
+    this.subscriptions = this.scoreService.getAllScoresByGolfCourseId(golfCourseId).subscribe({
+      next: (data) => {
+        this.scores = data;
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
   }
 
   getColumns() {

@@ -18,6 +18,7 @@ import { ScoreService } from 'src/app/core/services/score/score.service';
 import { AccordionModule } from 'primeng/accordion';
 import { GolfCourseService } from 'src/app/core/services/golf-course/golf-course.service';
 import { PostListComponent } from '../../post-components/post-list/post-list.component';
+import { Post } from 'src/app/core/models/post/post.model';
 
 @Component({
   selector: 'app-user-details',
@@ -42,7 +43,18 @@ import { PostListComponent } from '../../post-components/post-list/post-list.com
 })
 export class UserDetailsComponent implements OnInit, OnDestroy {
 
-  user!: User;
+  user: User = {
+    id: '',
+    username: '',
+    password: '',
+    name: '',
+    email: '',
+    handicapIndex: 0,
+    homeCourseName: '',
+    scores: [],
+    posts: [],
+    golfCourseId: ''
+  };
 
   scores: Score[] = [];
 
@@ -68,7 +80,6 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getUserData();
-    this.getUserScores();
     this.getColumns();
   }
 
@@ -80,6 +91,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     this.subscriptions = this.userService.getUserById(this.activatedRoute.snapshot.paramMap.get("Id")!).subscribe({
       next: (data) => {
         this.user = data;
+        this.getUserScores(data.id);
       },
       error: (error) => {
         console.error(error);
@@ -87,8 +99,8 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  getUserScores() {
-    this.subscriptions = this.scoreService.getAllScoresByUserId(this.activatedRoute.snapshot.paramMap.get("Id")!).subscribe({
+  getUserScores(userId: string) {
+    this.subscriptions = this.scoreService.getAllScoresByUserId(userId).subscribe({
       next: (data) => {
         this.scores = data;
         this.scores.forEach(score => {
