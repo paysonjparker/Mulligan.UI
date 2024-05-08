@@ -9,7 +9,7 @@ import { ScoreCreationRequest } from '../../models/score/score-creation.request'
   providedIn: 'root'
 })
 export class ScoreService {
-  // test
+
   readonly mulliganApiUrl = environments.mulliganLocalApi;
 
   constructor(private http: HttpClient) { }
