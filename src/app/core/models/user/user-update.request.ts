@@ -1,7 +1,6 @@
 export interface UserUpdateRequest {
-    password: string,
-    name: string,
-    email: string,
-    handicapIndex: number,
-    golfCourseId: string,
+    password?: string,
+    fullName?: string,
+    emailAddress?: string,
+    golfCourseId?: string,
 }

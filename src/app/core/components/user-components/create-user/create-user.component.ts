@@ -80,8 +80,8 @@ export class CreateUserComponent implements OnInit, AfterViewChecked, OnDestroy 
   createUser() {
     const createUserRequest: UserCreationRequest = {
       username: this.createUserForm.get('username')?.value,
-      name: this.createUserForm.get('name')?.value,
-      email: this.createUserForm.get('email')?.value,
+      fullName: this.createUserForm.get('name')?.value,
+      emailAddress: this.createUserForm.get('email')?.value,
       password: this.createUserForm.get('password')?.value,
       golfCourseId: this.createUserForm.get('golfCourseId')?.value,
     };

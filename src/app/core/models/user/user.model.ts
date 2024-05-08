@@ -3,13 +3,13 @@ import { Score } from "../score/score.model";
 
 export interface User {
     id: string,
-    username: string, 
+    username: string,
     password: string,
-    name: string, 
-    email: string,
+    fullName: string,
+    emailAddress: string,
     handicapIndex: number,
-    homeCourseName: string,
+    homeCourseName?: string,
     scores: Score[],
     posts: Post[],
-    golfCourseId: string,
+    golfCourseId?: string,
 }

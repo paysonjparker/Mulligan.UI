@@ -1,6 +1,6 @@
 export interface Post {
     id: string,
-    content: string, 
-    timestamp: Date,
+    content: string,
+    createdDate: Date,
     userId: string,
 }

@@ -1,6 +1,8 @@
 export interface GolfCourseCreationRequest {
     name: string,
-    location: string,
+    city: string,
+    subdivision?: string,
+    country: string
     slopeRating: number,
     courseRating: number,
     yardage: number,

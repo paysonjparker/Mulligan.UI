@@ -65,7 +65,7 @@ export class EditGolfCourseComponent {
         // Add values to the form
         this.editGolfCourseForm = this.formBuilder.group({
           name: new FormControl<string>(this.golfCourse.name, { validators: [Validators.required] }),
-          location: new FormControl<string>(this.golfCourse.location, { validators: [Validators.required] }),
+          location: new FormControl<string>(this.golfCourse.city, { validators: [Validators.required] }),
           slopeRating: new FormControl<number | null>(this.golfCourse.slopeRating, { validators: [Validators.required] }),
           courseRating: new FormControl<number | null>(this.golfCourse.courseRating, { validators: [Validators.required] }),
           yardage: new FormControl<number | null>(this.golfCourse.yardage, { validators: [Validators.required] }),

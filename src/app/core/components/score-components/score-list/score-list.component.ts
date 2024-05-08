@@ -64,7 +64,7 @@ export class ScoreListComponent {
         this.scores.forEach(score => {
           this.subscriptions = this.userService.getUserById(score.userId).subscribe({
             next: (data) => {
-              score.userName = data.name;
+              score.userName = data.fullName;
             },
             error: (error) => {
               console.error(error);
@@ -81,7 +81,7 @@ export class ScoreListComponent {
   getScoreUserName(userId: string) {
     this.subscriptions = this.userService.getUserById(userId).subscribe({
       next: (data) => {
-        return data.name;
+        return data.fullName;
       },
       error: (error) => {
         console.error(error);
