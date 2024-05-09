@@ -15,7 +15,6 @@ import { GolfCourseDetailsComponent } from './core/components/golf-course-compon
 import { HomeComponent } from './core/components/home/home/home.component';
 import { CreatePostComponent } from './core/components/post-components/create-post/create-post.component';
 
-
 const routes: Routes = [
   {
     title: 'Home',
