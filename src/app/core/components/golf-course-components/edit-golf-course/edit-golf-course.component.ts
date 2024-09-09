@@ -92,7 +92,9 @@ export class EditGolfCourseComponent {
   updateGolfCourse() {
     const updateGolfCourseRequest: GolfCourseUpdateRequest = {
       name: this.editGolfCourseForm.get('name')?.value,
-      location: this.editGolfCourseForm.get('location')?.value,
+      city: this.editGolfCourseForm.get('city')?.value,
+      subdivision: this.editGolfCourseForm.get('subdivision')?.value,
+      country: this.editGolfCourseForm.get('country')?.value,
       slopeRating: this.editGolfCourseForm.get('slopeRating')?.value,
       courseRating: this.editGolfCourseForm.get('courseRating')?.value,
       yardage: this.editGolfCourseForm.get('yardage')?.value,

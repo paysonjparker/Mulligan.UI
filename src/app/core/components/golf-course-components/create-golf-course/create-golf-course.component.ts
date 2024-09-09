@@ -67,7 +67,9 @@ export class CreateGolfCourseComponent {
   createGolfCourse() {
     const createGolfCourseRequest: GolfCourseCreationRequest = {
       name: this.createGolfCourseForm.get('name')?.value,
-      location: this.createGolfCourseForm.get('location')?.value,
+      city: this.createGolfCourseForm.get('city')?.value,
+      subdivision: this.createGolfCourseForm.get('subdivision')?.value,
+      country: this.createGolfCourseForm.get('country')?.value,
       slopeRating: this.createGolfCourseForm.get('slopeRating')?.value,
       courseRating: this.createGolfCourseForm.get('courseRating')?.value,
       yardage: this.createGolfCourseForm.get('yardage')?.value,

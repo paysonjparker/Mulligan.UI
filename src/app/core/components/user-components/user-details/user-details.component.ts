@@ -104,7 +104,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
       next: (data) => {
         this.scores = data;
         this.scores.forEach(score => {
-          this.subscriptions = this.golfCourseService.getGolfCourseById(score.golfCourseId).subscribe({
+          this.subscriptions = this.golfCourseService.getGolfCourseById(score.golfCourseId ?? '').subscribe({
             next: (data) => {
               score.golfCourseName = data.name;
             },

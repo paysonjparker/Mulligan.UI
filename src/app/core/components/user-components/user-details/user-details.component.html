@@ -1,11 +1,11 @@
-<p-card header="{{user?.name}}" subheader="{{user?.username}}">
+<p-card header="{{user.fullName}}" subheader="{{user.username}}">
     <div class="grid">
         <div class="col-12 md:col-6 lg:col-4">
             <div class="surface-card shadow-2 p-3 border-round">
                 <div class="flex justify-content-between mb-3">
                     <div>
                         <span class="block text-500 font-medium mb-3">Email Address</span>
-                        <div class="text-900 font-medium text-xl">{{user?.email}}</div>
+                        <div class="text-900 font-medium text-xl">{{user.emailAddress}}</div>
                     </div>
                     <div class="flex align-items-center justify-content-center bg-orange-100 border-round"
                         style="width:2.5rem;height:2.5rem">
@@ -19,7 +19,7 @@
                 <div class="flex justify-content-between mb-3">
                     <div>
                         <span class="block text-500 font-medium mb-3">Handicap Index</span>
-                        <div class="text-900 font-medium text-xl">{{user?.handicapIndex}}</div>
+                        <div class="text-900 font-medium text-xl">{{user.handicapIndex}}</div>
                     </div>
                     <div class="flex align-items-center justify-content-center bg-purple-100 border-round"
                         style="width:2.5rem;height:2.5rem">
@@ -33,7 +33,7 @@
                 <div class="flex justify-content-between mb-3">
                     <div>
                         <span class="block text-500 font-medium mb-3">Home Course</span>
-                        <div class="text-900 font-medium text-xl">{{user?.homeCourseName}}</div>
+                        <div class="text-900 font-medium text-xl">{{user.homeCourseName}}</div>
                     </div>
                     <div class="flex align-items-center justify-content-center bg-blue-100 border-round"
                         style="width:2.5rem;height:2.5rem">

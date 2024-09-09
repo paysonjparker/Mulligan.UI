@@ -12,12 +12,31 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <label class="pb-2" htmlFor="location" for="location">Location</label>
-                <input type="location" pInputText class="p-inputtext" id="location" aria-describedby="location"
-                    formControlName="location" [ngClass]="{'border-danger': validateRequiredFields('location')}" />
-                <div *ngIf="createGolfCourseForm.get('location')?.hasError('required')">
-                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('location')" id="location">
-                        Location is required.</small>
+                <label class="pb-2" htmlFor="city" for="city">City</label>
+                <input type="city" pInputText class="p-inputtext" id="city" aria-describedby="city"
+                    formControlName="city" [ngClass]="{'border-danger': validateRequiredFields('city')}" />
+                <div *ngIf="createGolfCourseForm.get('city')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('city')" id="city">
+                        City is required.</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="pb-2" htmlFor="subdivision" for="subdivision">Subdivision</label>
+                <input type="subdivision" pInputText class="p-inputtext" id="subdivision" aria-describedby="subdivision"
+                    formControlName="subdivision"
+                    [ngClass]="{'border-danger': validateRequiredFields('subdivision')}" />
+                <div *ngIf="createGolfCourseForm.get('subdivision')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('subdivision')" id="subdivision">
+                        Subdivision is required.</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="pb-2" htmlFor="country" for="country">Country</label>
+                <input type="country" pInputText class="p-inputtext" id="country" aria-describedby="country"
+                    formControlName="country" [ngClass]="{'border-danger': validateRequiredFields('country')}" />
+                <div *ngIf="createGolfCourseForm.get('country')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('country')" id="country">
+                        Country is required.</small>
                 </div>
             </div>
         </div>
