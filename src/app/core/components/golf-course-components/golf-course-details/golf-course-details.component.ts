@@ -43,7 +43,18 @@ import { ScoreListComponent } from '../../score-components/score-list/score-list
 })
 export class GolfCourseDetailsComponent implements OnInit, OnDestroy {
 
-  golfCourse!: GolfCourse;
+  golfCourse: GolfCourse = {
+    id: '',
+    name: '',
+    city: '',
+    country: '',
+    slopeRating: 0,
+    courseRating: 0,
+    yardage: 0,
+    par: 0,
+    scores: [],
+    posts: []
+  };
 
   members: User[] = [];
 

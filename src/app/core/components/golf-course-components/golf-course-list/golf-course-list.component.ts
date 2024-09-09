@@ -84,7 +84,9 @@ export class GolfCourseListComponent implements OnInit, OnDestroy {
   getColumns() {
     this.cols = [
       { header: 'Name', field: 'name', hide: false },
-      { header: 'Location', field: 'location', hide: false },
+      { header: 'City', field: 'city', hide: false },
+      { header: 'Subdivion', field: 'subdivision', hide: false },
+      { header: 'Country', field: 'country', hide: false },
       { header: 'Par', field: 'par', hide: false },
       { header: 'Yardage', field: 'yardage', hide: false },
       { header: 'Slope Rating', field: 'slopeRating', hide: false },
