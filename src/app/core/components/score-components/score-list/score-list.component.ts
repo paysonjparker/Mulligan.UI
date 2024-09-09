@@ -49,12 +49,34 @@ export class ScoreListComponent {
   ) { }
 
   ngOnInit() {
-    this.getAllScoresByUserId(this.golfCourseId);
+    this.getAllScores();
+    // this.getAllScoresByUserId(this.golfCourseId);
     this.getColumns();
   }
 
   ngOnDestroy() {
     this.subscriptions?.unsubscribe();
+  }
+
+  getAllScores() {
+    this.subscriptions = this.scoreService.getAllScores().subscribe({
+      next: (data) => {
+        this.scores = data;
+        this.scores.forEach(score => {
+          this.subscriptions = this.userService.getUserById(score.userId).subscribe({
+            next: (data) => {
+              score.userName = data.fullName;
+            },
+            error: (error) => {
+              console.error(error);
+            }
+          });
+        });
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
   }
 
   getAllScoresByUserId(golfCourseId: string) {
