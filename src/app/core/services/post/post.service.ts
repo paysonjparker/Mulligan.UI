@@ -15,18 +15,18 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   public getAllPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.mulliganApiUrl + "/Post");
+    return this.http.get<Post[]>(this.mulliganApiUrl + "/posts");
   };
 
   public getPostsByUserId(userId: string): Observable<Post[]> {
-    return this.http.get<Post[]>(this.mulliganApiUrl + "/Post/" + userId);
+    return this.http.get<Post[]>(this.mulliganApiUrl + "/posts/user/" + userId);
   };
 
   public deletePost(postId: string): Observable<void> {
-    return this.http.delete<void>(this.mulliganApiUrl + "/Post/" + postId);
+    return this.http.delete<void>(this.mulliganApiUrl + "/posts/" + postId);
   }
 
   public createPost(postCreationRequest: PostCreationRequest): Observable<Post> {
-    return this.http.post<Post>(this.mulliganApiUrl + "/Post", postCreationRequest);
+    return this.http.post<Post>(this.mulliganApiUrl + "/posts", postCreationRequest);
   }
 }

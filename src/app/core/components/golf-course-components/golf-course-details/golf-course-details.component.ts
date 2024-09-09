@@ -115,9 +115,9 @@ export class GolfCourseDetailsComponent implements OnInit, OnDestroy {
 
   getColumns() {
     this.cols = [
-      { header: 'Name', field: 'name', hide: false },
+      { header: 'Name', field: 'fullName', hide: false },
       { header: 'Username', field: 'username', hide: false },
-      { header: 'Email', field: 'email', hide: false },
+      { header: 'Email', field: 'emailAddress', hide: false },
       { header: 'Handicap Index', field: 'handicapIndex', hide: false },
     ];
 

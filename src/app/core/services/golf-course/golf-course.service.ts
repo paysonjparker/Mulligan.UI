@@ -16,24 +16,24 @@ export class GolfCourseService {
   constructor(private http: HttpClient) { }
 
   public getAllGolfCourses(): Observable<GolfCourse[]> {
-    const url = `${this.mulliganApiUrl}/GolfCourse`;
+    const url = `${this.mulliganApiUrl}/golfCourses`;
 
     return this.http.get<GolfCourse[]>(url);
   }
 
   public getGolfCourseById(golfCourseId: string): Observable<GolfCourse> {
-    return this.http.get<GolfCourse>(this.mulliganApiUrl + "/GolfCourse/" + golfCourseId);
+    return this.http.get<GolfCourse>(this.mulliganApiUrl + "/golfCourses/" + golfCourseId);
   };
 
   public deleteGolfCourse(golfCourseId: string): Observable<void> {
-    return this.http.delete<void>(this.mulliganApiUrl + "/GolfCourse/" + golfCourseId);
+    return this.http.delete<void>(this.mulliganApiUrl + "/golfCourses/" + golfCourseId);
   }
 
   public updateGolfCourse(golfCourseId: string, golfCourseUpdateRequest: GolfCourseUpdateRequest): Observable<GolfCourse> {
-    return this.http.put<GolfCourse>(this.mulliganApiUrl + "/GolfCourse/" + golfCourseId, golfCourseUpdateRequest);
+    return this.http.put<GolfCourse>(this.mulliganApiUrl + "/golfCourses/" + golfCourseId, golfCourseUpdateRequest);
   }
 
   public createGolfCourse(golfCourseCreationRequest: GolfCourseCreationRequest): Observable<GolfCourse> {
-    return this.http.post<GolfCourse>(this.mulliganApiUrl + "/GolfCourse", golfCourseCreationRequest);
+    return this.http.post<GolfCourse>(this.mulliganApiUrl + "/golfCourses", golfCourseCreationRequest);
   }
 }

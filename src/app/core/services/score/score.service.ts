@@ -15,22 +15,22 @@ export class ScoreService {
   constructor(private http: HttpClient) { }
 
   public getAllScores(): Observable<Score[]> {
-    return this.http.get<Score[]>(this.mulliganApiUrl + "/Score");
+    return this.http.get<Score[]>(this.mulliganApiUrl + "/scores");
   };
 
   public getAllScoresByUserId(userId: string): Observable<Score[]> {
-    return this.http.get<Score[]>(this.mulliganApiUrl + "/Score/user/" + userId);
+    return this.http.get<Score[]>(this.mulliganApiUrl + "/scores/user/" + userId);
   };
 
   public getAllScoresByGolfCourseId(golfCourseId: string): Observable<Score[]> {
-    return this.http.get<Score[]>(this.mulliganApiUrl + "/Score/golfCourse/" + golfCourseId);
+    return this.http.get<Score[]>(this.mulliganApiUrl + "/scores/golfCourse/" + golfCourseId);
   };
 
   public deleteScore(scoreId: string): Observable<void> {
-    return this.http.delete<void>(this.mulliganApiUrl + "/Score/" + scoreId);
+    return this.http.delete<void>(this.mulliganApiUrl + "/scores/" + scoreId);
   }
 
   public createScore(scoreCreationRequest: ScoreCreationRequest): Observable<Score> {
-    return this.http.post<Score>(this.mulliganApiUrl + "/Score", scoreCreationRequest);
+    return this.http.post<Score>(this.mulliganApiUrl + "/scores", scoreCreationRequest);
   }
 }

@@ -2,7 +2,7 @@
     <hr>
     <div [formGroup]="editGolfCourseForm" novalidate>
         <div class="row pb-2 pt-2">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label class="pb-2" htmlFor="name" for="name">Golf Course Name</label>
                 <input pInputText class="p-inputtext" id="name" aria-describedby="name" formControlName="name"
                     [ngClass]="{'border-danger': validateRequiredFields('name')}" />
@@ -11,7 +11,7 @@
                         Golf Course Name is required.</small>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label class="pb-2" htmlFor="city" for="city">City</label>
                 <input type="city" pInputText class="p-inputtext" id="city" aria-describedby="city"
                     formControlName="city" [ngClass]="{'border-danger': validateRequiredFields('city')}" />
@@ -20,7 +20,7 @@
                         City is required.</small>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label class="pb-2" htmlFor="subdivision" for="subdivision">Subdivision</label>
                 <input type="subdivision" pInputText class="p-inputtext" id="subdivision" aria-describedby="subdivision"
                     formControlName="subdivision"
@@ -30,7 +30,7 @@
                         Subdivision is required.</small>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label class="pb-2" htmlFor="country" for="country">Country</label>
                 <input type="country" pInputText class="p-inputtext" id="country" aria-describedby="country"
                     formControlName="country" [ngClass]="{'border-danger': validateRequiredFields('country')}" />

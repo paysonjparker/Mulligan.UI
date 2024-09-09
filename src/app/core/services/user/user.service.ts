@@ -16,30 +16,30 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public getUserById(userId: string): Observable<User> {
-    const url = `${this.mulliganApiUrl}/User/${userId}`
+    const url = `${this.mulliganApiUrl}/users/${userId}`
     return this.http.get<User>(url);
   }
 
   public deleteUser(userId: string): Observable<boolean> {
-    return this.http.delete<boolean>(this.mulliganApiUrl + "/User/" + userId);
+    return this.http.delete<boolean>(this.mulliganApiUrl + "/users/" + userId);
   }
 
   public updateUser(userId: string, userUpdateRequest: UserUpdateRequest): Observable<User> {
-    return this.http.put<User>(this.mulliganApiUrl + "/User/" + userId, userUpdateRequest);
+    return this.http.put<User>(this.mulliganApiUrl + "/users/" + userId, userUpdateRequest);
   }
 
   public createUser(userCreationRequest: UserCreationRequest): Observable<User> {
-    return this.http.post<User>(this.mulliganApiUrl + "/User", userCreationRequest);
+    return this.http.post<User>(this.mulliganApiUrl + "/users", userCreationRequest);
   }
 
   public getAllUsers(): Observable<User[]> {
-    const url = `${this.mulliganApiUrl}/User`;
+    const url = `${this.mulliganApiUrl}/users`;
 
     return this.http.get<User[]>(url);
   }
 
   public getAllUsersByGolfCourseId(golfCourseId: string): Observable<User[]> {
-    const url = `${this.mulliganApiUrl}/User/golfCourse/${golfCourseId}`;
+    const url = `${this.mulliganApiUrl}/users/golfCourse/${golfCourseId}`;
 
     return this.http.get<User[]>(url);
   }

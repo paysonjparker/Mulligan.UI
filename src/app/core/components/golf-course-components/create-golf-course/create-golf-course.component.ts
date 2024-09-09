@@ -56,7 +56,9 @@ export class CreateGolfCourseComponent {
   public createGolfCourseMaintenanceForm(): FormGroup {
     return this.formBuilder.group({
       name: new FormControl<string>('', { validators: [Validators.required] }),
-      location: new FormControl<string>('', { validators: [Validators.required] }),
+      city: new FormControl<string>('', { validators: [Validators.required] }),
+      subdivision: new FormControl<string>('', { validators: [Validators.required] }),
+      country: new FormControl<string>('', { validators: [Validators.required] }),
       slopeRating: new FormControl<number | null>(null, { validators: [Validators.required] }),
       courseRating: new FormControl<number | null>(null, { validators: [Validators.required] }),
       yardage: new FormControl<number | null>(null, { validators: [Validators.required] }),
