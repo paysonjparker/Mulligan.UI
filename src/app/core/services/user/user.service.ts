@@ -5,7 +5,6 @@ import { User } from '../../models/user/user.model';
 import { UserCreationRequest } from '../../models/user/user-creation.request';
 import { Observable } from 'rxjs';
 import { UserUpdateRequest } from '../../models/user/user-update.request';
-import { UserSearchRequest } from '../../models/user/user-search.request';
 
 @Injectable({
   providedIn: 'root'
@@ -45,31 +44,22 @@ export class UserService {
     return this.http.get<User[]>(url);
   }
 
-  public searchUsers(userSearchRequest: UserSearchRequest): Observable<User[]> {
+  public searchUsers(searchQuery: string): Observable<User[]> {
     let url = `${this.mulliganApiUrl}/users/search`;
 
-    if (userSearchRequest.username == '' && userSearchRequest.fullName == '' && userSearchRequest.emailAddress == '' && userSearchRequest.homeCourseName == '') {
+    if (searchQuery == '') {
       return this.getAllUsers();
     }
 
     let httpQueryParams = new HttpParams();
 
-    if (userSearchRequest.username !== undefined && userSearchRequest.username !== null && userSearchRequest.username !== '') {
-      httpQueryParams = httpQueryParams.set('username', userSearchRequest.username);
-    }
-    if (userSearchRequest.fullName !== undefined && userSearchRequest.fullName !== null && userSearchRequest.fullName !== '') {
-      httpQueryParams = httpQueryParams.set('fullName', userSearchRequest.fullName);
-    }
-    if (userSearchRequest.emailAddress !== undefined && userSearchRequest.emailAddress !== null && userSearchRequest.emailAddress !== '') {
-      httpQueryParams = httpQueryParams.set('emailAddress', userSearchRequest.emailAddress);
-    }
-    if (userSearchRequest.homeCourseName !== undefined && userSearchRequest.homeCourseName !== null && userSearchRequest.homeCourseName !== '') {
-      httpQueryParams = httpQueryParams.set('homeCourseName', userSearchRequest.homeCourseName);
-    }
+    if (searchQuery !== undefined && searchQuery !== null && searchQuery !== '') {
+      httpQueryParams = httpQueryParams.set('searchQuery', searchQuery);
 
-    const queryString = httpQueryParams.toString();
+      const queryString = httpQueryParams.toString();
 
-    url += `?${queryString}`
+      url += `?${queryString}`
+    }
 
     return this.http.get<User[]>(url);
   }
