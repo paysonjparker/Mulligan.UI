@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -35,7 +35,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 })
 export class UserListComponent implements OnInit, OnDestroy {
 
-  users: User[] = [];
+  @Input() users: User[] = [];
 
   cols!: Column[];
 

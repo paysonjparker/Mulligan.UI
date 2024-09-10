@@ -14,6 +14,7 @@ import { EditGolfCourseComponent } from './core/components/golf-course-component
 import { GolfCourseDetailsComponent } from './core/components/golf-course-components/golf-course-details/golf-course-details.component';
 import { HomeComponent } from './core/components/home/home/home.component';
 import { CreatePostComponent } from './core/components/post-components/create-post/create-post.component';
+import { UserSearchComponent } from './core/components/user-components/user-search/user-search.component';
 
 const routes: Routes = [
   {
@@ -49,7 +50,7 @@ const routes: Routes = [
   {
     title: 'Users',
     path: 'users',
-    component: UserListComponent
+    component: UserSearchComponent
   },
   {
     title: 'Create User',
