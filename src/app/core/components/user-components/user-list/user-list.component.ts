@@ -37,6 +37,8 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   @Input() users: User[] = [];
 
+  @Input() userListTitle = 'Users';
+
   cols!: Column[];
 
   columnsToDisplay!: Column[];
@@ -85,7 +87,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   getColumns() {
     this.cols = [
       { header: 'Username', field: 'username', hide: false },
-      { header: 'Name', field: 'name', hide: false },
+      { header: 'Name', field: 'fullName', hide: false },
       { header: 'Email', field: 'email', hide: true },
       { header: 'Handicap Index', field: 'handicapIndex', hide: false },
       { header: 'Home Golf Course', field: 'homeCourseName', hide: false },

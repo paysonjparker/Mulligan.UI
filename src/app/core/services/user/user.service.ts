@@ -71,8 +71,6 @@ export class UserService {
 
     url += `?${queryString}`
 
-    console.info(url);
-
     return this.http.get<User[]>(url);
   }
 }

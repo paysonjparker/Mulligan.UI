@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -9,6 +9,7 @@ import { User } from 'src/app/core/models/user/user.model';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { UserSearchRequest } from 'src/app/core/models/user/user-search.request';
+import { AccordionModule } from 'primeng/accordion';
 
 @Component({
   selector: 'app-user-search',
@@ -19,6 +20,7 @@ import { UserSearchRequest } from 'src/app/core/models/user/user-search.request'
     ReactiveFormsModule,
     InputTextModule,
     ButtonModule,
+    AccordionModule,
     UserListComponent,
   ],
   templateUrl: './user-search.component.html',
@@ -32,12 +34,14 @@ export class UserSearchComponent implements OnInit, AfterViewChecked, OnDestroy 
 
   users: User[] = [];
 
-  hasExecutedSearch: boolean = true;
+  isSearchAccoridonExpanded!: boolean;
 
   constructor(private formBuilder: FormBuilder,
-    private userService: UserService) { }
+    private userService: UserService,
+    private ngZone: NgZone) { }
 
   ngOnInit(): void {
+    this.isSearchAccoridonExpanded = true;
     this.searchUserForm = this.createSearchUserForm();
   }
 
@@ -66,17 +70,17 @@ export class UserSearchComponent implements OnInit, AfterViewChecked, OnDestroy 
       homeCourseName: this.searchUserForm.get('homeCourseName')?.value ?? null,
     }
 
-    console.info(searchUserRequest);
-
-    this.subscriptions = this.userService.searchUsers(searchUserRequest).subscribe({
-      next: (data) => {
-        this.users = data;
-      },
-      error: (error) => {
-        console.error(error);
-      }
+    this.ngZone.run(() => {
+      this.subscriptions = this.userService.searchUsers(searchUserRequest).subscribe({
+        next: (data) => {
+          this.users = data;
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      });
     });
 
-
+    this.isSearchAccoridonExpanded = false;
   }
 }
