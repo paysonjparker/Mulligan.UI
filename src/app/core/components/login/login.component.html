@@ -1,0 +1,31 @@
+<div class="flex justify-content-center align-content-center flex-wrap">
+    <p-card class="p-card sign-up-card" [header]="'Login'">
+        <div [formGroup]="loginForm">
+            <div class="field">
+                <label htmlFor="username" for="username">Username</label>
+                <input pInputText class="w-full" id="username" aria-label="Enter username" formControlName="username"
+                    [ngClass]="{'border-danger': validateRequiredFields('username')}" />
+                <div *ngIf="loginForm.get('username')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('username')" id="username">
+                        Username is required.</small>
+                </div>
+            </div>
+            <div class="field">
+                <label htmlFor="password" for="password">Password</label>
+                <input pInputText class="w-full" type="password" id="password" aria-label="Enter password"
+                    formControlName="password" [ngClass]="{'border-danger': validateRequiredFields('password')}" />
+                <div *ngIf="loginForm.get('password')?.hasError('required')">
+                    <small class="p-error block pt-2" *ngIf="validateRequiredFields('password')" id="password">
+                        Password is required.</small>
+                </div>
+            </div>
+        </div>
+        <ng-template pTemplate="footer">
+            <p-button label="Login" icon="pi pi-sign-in" [disabled]="loginForm.invalid || loginForm.pristine"
+                (onClick)="login()"></p-button>
+            <p-button label="Sign up" icon="pi pi-user-plus" styleClass="p-button-secondary"
+                [style]="{ 'margin-left': '.5em' }" (onClick)="navigateToRegister()"></p-button>
+        </ng-template>
+    </p-card>
+    <!-- <div *ngIf="bearerToken">{{bearerToken}}</div> -->
+</div>

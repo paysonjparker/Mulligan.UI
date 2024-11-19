@@ -16,72 +16,93 @@ import { HomeComponent } from './core/components/home/home/home.component';
 import { CreatePostComponent } from './core/components/post-components/create-post/create-post.component';
 import { UserSearchComponent } from './core/components/user-components/user-search/user-search.component';
 import { DiscoverComponent } from './core/components/discover/discover/discover.component';
+import { AuthenticationGuard } from './core/guards/authentication.guard';
+import { LoginComponent } from './core/components/login/login.component';
 
 const routes: Routes = [
   {
     title: 'Home',
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthenticationGuard]
+  },
+  {
+    title: 'Login',
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'Add Post',
     path: 'posts/create/:Id',
-    component: CreatePostComponent
+    component: CreatePostComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'Golf Courses',
     path: 'golfCourses',
-    component: GolfCourseListComponent
+    component: GolfCourseListComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'Create Golf Course',
     path: 'golfCourses/create',
-    component: CreateGolfCourseComponent
+    component: CreateGolfCourseComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'Edit Golf Course',
     path: 'golfCourses/edit/:Id',
-    component: EditGolfCourseComponent
+    component: EditGolfCourseComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'View Golf Course',
     path: 'golfCourses/:Id',
-    component: GolfCourseDetailsComponent
+    component: GolfCourseDetailsComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'Users',
     path: 'users',
-    component: UserSearchComponent
+    component: UserSearchComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
-    title: 'Create User',
-    path: 'users/create',
-    component: CreateUserComponent
+    title: 'Register',
+    path: 'register',
+    component: CreateUserComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'View User',
     path: 'users/:Id',
-    component: UserDetailsComponent
+    component: UserDetailsComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'Edit User',
     path: 'users/edit/:Id',
-    component: UpdateUserComponent
+    component: UpdateUserComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'View Scores',
     path: 'scores',
-    component: ScoreListComponent
+    component: ScoreListComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'Add Score',
     path: 'scores/create',
-    component: ScoreMaintenanceComponent
+    component: ScoreMaintenanceComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     title: 'Discover',
     path: 'discover/:search',
-    component: DiscoverComponent
+    component: DiscoverComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: '**',
