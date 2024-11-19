@@ -2,13 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { InputTextModule } from 'primeng/inputtext';
+import { Router } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-navigation-bar',
   standalone: true,
   imports: [
     CommonModule,
-    MenubarModule
+    MenubarModule,
+    InputTextModule,
+    ButtonModule,
   ],
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss']
@@ -16,6 +22,11 @@ import { MenubarModule } from 'primeng/menubar';
 export class NavigationBarComponent implements OnInit {
 
   menuItems: MenuItem[] | undefined;
+
+  searchForm!: FormGroup;
+
+  constructor(private router: Router,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.menuItems = [
@@ -77,6 +88,16 @@ export class NavigationBarComponent implements OnInit {
       //   icon: 'pi pi-pencil',
       //   routerLink: 'posts/create',
       // },
-    ]
+    ];
+
+    // this.searchForm = this.createSearchForm();
+  }
+
+  createSearchForm() {
+
+  }
+
+  onSearch(search?: string) {
+    this.router.navigate(['discover', search],);
   }
 }

@@ -4,8 +4,13 @@
             <img src="https://www.svgrepo.com/show/219557/golf.svg" height="40" class="menubar-logo" />
         </ng-template>
         <ng-template pTemplate="end">
-            <div class="menubar-title">
-                Mulligan
+            <div class="flex align-items-center gap-2">
+                <input type="text" pInputText placeholder="Search" class="w-auto lg:w-20rem"
+                    (keydown.enter)="onSearch()" />
+                <p-button icon="pi pi-search" (onClick)="onSearch()"></p-button>
+                <div class="menubar-title">
+                    Mulligan
+                </div>
             </div>
         </ng-template>
     </p-menubar>

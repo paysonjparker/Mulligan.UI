@@ -15,6 +15,7 @@ import { GolfCourseDetailsComponent } from './core/components/golf-course-compon
 import { HomeComponent } from './core/components/home/home/home.component';
 import { CreatePostComponent } from './core/components/post-components/create-post/create-post.component';
 import { UserSearchComponent } from './core/components/user-components/user-search/user-search.component';
+import { DiscoverComponent } from './core/components/discover/discover/discover.component';
 
 const routes: Routes = [
   {
@@ -76,6 +77,11 @@ const routes: Routes = [
     title: 'Add Score',
     path: 'scores/create',
     component: ScoreMaintenanceComponent
+  },
+  {
+    title: 'Discover',
+    path: 'discover/:search',
+    component: DiscoverComponent
   },
   {
     path: '**',
