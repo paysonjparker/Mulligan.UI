@@ -66,19 +66,19 @@
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
-						"production": {
-							"browserTarget": "Mulligan.UI:build:production"
+            "production": {
+              "buildTarget": "Mulligan.UI:build:production"
 						},
-						"development": {
-							"browserTarget": "Mulligan.UI:build:development"
+            "development": {
+              "buildTarget": "Mulligan.UI:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
-					"options": {
-						"browserTarget": "Mulligan.UI:build"
+          "options": {
+            "buildTarget": "Mulligan.UI:build"
 					}
 				},
 				"test": {
